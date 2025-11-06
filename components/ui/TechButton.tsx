@@ -22,18 +22,18 @@ export const TechButton = ({
   icon = 'arrow',
   className = '',
 }: TechButtonProps) => {
-  const baseClasses = 'group relative inline-flex items-center justify-center overflow-hidden font-light uppercase tracking-[0.2em] transition-all duration-300'
+  const baseClasses = 'group relative inline-flex items-center justify-center overflow-hidden font-light uppercase tracking-[0.2em] transition-all duration-300 active:scale-95'
 
   const variantClasses = {
-    primary: 'bg-aog-primary text-white hover:bg-aog-primary/90',
-    secondary: 'bg-white text-black hover:bg-gray-100',
-    outline: 'border-2 border-aog-primary bg-transparent text-aog-primary hover:bg-aog-primary hover:text-white',
+    primary: 'bg-aog-primary text-white hover:bg-aog-primary/90 active:bg-aog-primary',
+    secondary: 'bg-white text-black hover:bg-gray-100 active:bg-gray-200',
+    outline: 'border-2 border-aog-primary bg-transparent text-aog-primary hover:bg-aog-primary hover:text-white active:bg-aog-primary/90',
   }
 
   const sizeClasses = {
-    sm: 'px-4 py-2 text-[10px]',
-    md: 'px-6 py-3 text-xs',
-    lg: 'px-8 py-4 text-sm',
+    sm: 'px-4 py-2.5 text-[10px] sm:px-4 sm:py-2',
+    md: 'px-5 py-3 text-xs sm:px-6',
+    lg: 'px-6 py-3.5 text-sm sm:px-8 sm:py-4',
   }
 
   const IconComponent = icon === 'arrow' ? ArrowRight : icon === 'chevron' ? ChevronRight : null
@@ -94,19 +94,19 @@ export const TechButtonDiagonal = ({
   return (
     <Link
       href={href}
-      className={`group relative inline-flex items-center gap-3 overflow-hidden border-2 border-aog-primary bg-aog-primary px-6 py-3 font-light uppercase tracking-[0.2em] text-white transition-all hover:border-aog-primary/80 hover:bg-aog-primary/90 ${className}`}
+      className={`group relative inline-flex items-center gap-2 overflow-hidden border-2 border-aog-primary bg-aog-primary px-5 py-3 font-light uppercase tracking-[0.2em] text-white transition-all hover:border-aog-primary/80 hover:bg-aog-primary/90 active:scale-95 sm:gap-3 sm:px-6 ${className}`}
     >
       {/* Corner cuts */}
       <div className="absolute left-0 top-0 h-3 w-3 border-l-2 border-t-2 border-white/50 group-hover:border-white" />
       <div className="absolute bottom-0 right-0 h-3 w-3 border-b-2 border-r-2 border-white/50 group-hover:border-white" />
 
       {/* Content */}
-      <span className="relative z-10 flex items-center gap-2 text-xs">
+      <span className="relative z-10 flex items-center gap-2 text-[10px] sm:text-xs">
         {children}
       </span>
 
       {/* Flecha diagonal tech */}
-      <div className="relative z-10 flex h-8 w-8 items-center justify-center">
+      <div className="relative z-10 flex h-6 w-6 items-center justify-center sm:h-8 sm:w-8">
         {/* Círculo exterior */}
         <motion.div
           className="absolute inset-0 rounded-full border border-aog-primary/30"

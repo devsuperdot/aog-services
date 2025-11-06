@@ -85,27 +85,36 @@ export default function AOGHeader() {
         </div>
 
         {/* Floating particles */}
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute h-px w-px rounded-full bg-white"
-            initial={{
-              x: `${Math.random() * 100}%`,
-              y: '0%',
-              opacity: 0,
-            }}
-            animate={{
-              y: ['0%', '100%'],
-              opacity: [0, Math.random() * 0.5 + 0.3, 0],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: 'linear',
-            }}
-          />
-        ))}
+        {[...Array(20)].map((_, i) => {
+          // Use deterministic values based on index to avoid hydration mismatch
+          const seed = (i + 1) * 7.3 // Deterministic seed
+          const xPos = ((seed * 13) % 100)
+          const opacity = 0.3 + ((seed * 5) % 5) * 0.1
+          const duration = 2 + ((seed * 3) % 3)
+          const delay = (seed * 7) % 5
+
+          return (
+            <motion.div
+              key={i}
+              className="absolute h-px w-px rounded-full bg-white"
+              initial={{
+                x: `${xPos}%`,
+                y: '0%',
+                opacity: 0,
+              }}
+              animate={{
+                y: ['0%', '100%'],
+                opacity: [0, opacity, 0],
+              }}
+              transition={{
+                duration: duration,
+                repeat: Infinity,
+                delay: delay,
+                ease: 'linear',
+              }}
+            />
+          )
+        })}
 
         {/* Horizontal scan line */}
         <motion.div
@@ -135,8 +144,8 @@ export default function AOGHeader() {
       </div>
       <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-4 py-3 sm:px-6 md:px-12 lg:px-16">
         {/* Logo */}
-        <Link href="/" className="group relative">
-          <div className="relative h-10 w-10 sm:h-12 sm:w-12">
+        <Link href="/" className="group relative z-50">
+          <div className="relative h-11 w-11 sm:h-12 sm:w-12">
             {/* Glow effect on hover */}
             <div className="absolute -inset-2 bg-aog-primary/20 opacity-0 blur-lg transition-opacity group-hover:opacity-100" />
             {/* Logo Image - Square Isotype (White with transparency) */}
@@ -221,8 +230,9 @@ export default function AOGHeader() {
         {/* Mobile menu button */}
         <button
           type="button"
-          className="group relative flex h-9 w-9 items-center justify-center overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm transition-colors hover:border-aog-primary/50 lg:hidden"
+          className="group relative z-50 flex h-10 w-10 items-center justify-center overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm transition-colors hover:border-aog-primary/50 active:scale-95 lg:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
         >
           <span className="sr-only">Toggle menu</span>
           <AnimatePresence mode="wait">
@@ -261,7 +271,7 @@ export default function AOGHeader() {
             transition={{ duration: 0.3 }}
             className="overflow-hidden border-t border-white/5 bg-black/95 backdrop-blur-xl lg:hidden"
           >
-            <div className="space-y-1 px-4 py-6 sm:px-6">
+            <div className="max-h-[calc(100vh-80px)] space-y-1 overflow-y-auto px-4 py-6 sm:px-6">
               {navigation.map((item, idx) => (
                 <motion.div
                   key={item.name}
@@ -271,14 +281,14 @@ export default function AOGHeader() {
                 >
                   <Link
                     href={item.href}
-                    className={`group relative block overflow-hidden border-l-2 px-4 py-3 text-sm font-light uppercase tracking-[0.2em] transition-all ${
+                    className={`group relative block overflow-hidden border-l-2 px-4 py-4 text-sm font-light uppercase tracking-[0.2em] transition-all active:scale-[0.98] ${
                       pathname === item.href
                         ? 'border-aog-primary bg-white/5 text-white'
                         : 'border-transparent text-white/60 hover:border-white/20 hover:bg-white/5 hover:text-white'
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    {item.name}
+                    <span className="relative">{item.name}</span>
                     {/* Hover slide effect */}
                     <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-aog-primary/5 to-transparent transition-transform duration-300 group-hover:translate-x-0" />
                   </Link>
@@ -294,7 +304,7 @@ export default function AOGHeader() {
               >
                 <Link
                   href="/contact"
-                  className="group relative block overflow-hidden border border-aog-primary/30 bg-gradient-to-r from-aog-primary/10 to-transparent px-4 py-3 text-center text-sm font-light uppercase tracking-[0.2em] text-white transition-all hover:border-aog-primary/50"
+                  className="group relative block overflow-hidden border border-aog-primary/30 bg-gradient-to-r from-aog-primary/10 to-transparent px-4 py-4 text-center text-sm font-light uppercase tracking-[0.2em] text-white transition-all hover:border-aog-primary/50 active:scale-[0.98]"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <span className="relative">Contactar ahora</span>

@@ -89,27 +89,37 @@ const TechBackground = () => (
 
     {/* Floating particles - Menos brillantes en mobile */}
     <div className="pointer-events-none absolute inset-0">
-      {[...Array(50)].map((_, i) => (
-        <motion.div
-          key={`particle-${i}`}
-          className="absolute h-1 w-1 rounded-full bg-aog-primary shadow-sm shadow-aog-primary/30 sm:h-1.5 sm:w-1.5 sm:shadow-md sm:shadow-aog-primary/40 md:h-2 md:w-2 md:shadow-lg md:shadow-aog-primary/50"
-          initial={{
-            x: `${Math.random() * 100}%`,
-            y: `${Math.random() * 100}%`,
-            opacity: 0,
-          }}
-          animate={{
-            y: [null, `${Math.random() * 100}%`],
-            opacity: [0, 0.5, 0],
-          }}
-          transition={{
-            duration: Math.random() * 4 + 3,
-            repeat: Infinity,
-            delay: Math.random() * 3,
-            ease: 'linear',
-          }}
-        />
-      ))}
+      {[...Array(50)].map((_, i) => {
+        // Use deterministic values based on index to avoid hydration mismatch
+        const seed = (i + 1) * 5.7
+        const xPos = ((seed * 17) % 100)
+        const yPosStart = ((seed * 11) % 100)
+        const yPosEnd = ((seed * 23) % 100)
+        const duration = 3 + ((seed * 7) % 4)
+        const delay = (seed * 13) % 3
+
+        return (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute h-1 w-1 rounded-full bg-aog-primary shadow-sm shadow-aog-primary/30 sm:h-1.5 sm:w-1.5 sm:shadow-md sm:shadow-aog-primary/40 md:h-2 md:w-2 md:shadow-lg md:shadow-aog-primary/50"
+            initial={{
+              x: `${xPos}%`,
+              y: `${yPosStart}%`,
+              opacity: 0,
+            }}
+            animate={{
+              y: `${yPosEnd}%`,
+              opacity: [0, 0.5, 0],
+            }}
+            transition={{
+              duration: duration,
+              repeat: Infinity,
+              delay: delay,
+              ease: 'linear',
+            }}
+          />
+        )
+      })}
     </div>
 
     {/* Scan line effect - Menos visible en mobile */}
@@ -353,28 +363,33 @@ const ServicesSection = () => {
 
                   {/* Floating particles on hover */}
                   <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    {[...Array(3)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute h-1 w-1 rounded-full bg-aog-primary"
-                        initial={false}
-                        animate={{
-                          y: [0, -100],
-                          x: [0, Math.random() * 50 - 25],
-                          opacity: [0, 1, 0],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: i * 0.3,
-                          ease: 'easeOut',
-                        }}
-                        style={{
-                          left: `${20 + i * 30}%`,
-                          bottom: '20%',
-                        }}
-                      />
-                    ))}
+                    {[...Array(3)].map((_, i) => {
+                      // Use deterministic values based on index
+                      const xOffset = (i % 2 === 0 ? 1 : -1) * (10 + i * 5)
+
+                      return (
+                        <motion.div
+                          key={i}
+                          className="absolute h-1 w-1 rounded-full bg-aog-primary"
+                          initial={false}
+                          animate={{
+                            y: [0, -100],
+                            x: [0, xOffset],
+                            opacity: [0, 1, 0],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: i * 0.3,
+                            ease: 'easeOut',
+                          }}
+                          style={{
+                            left: `${20 + i * 30}%`,
+                            bottom: '20%',
+                          }}
+                        />
+                      )
+                    })}
                   </div>
 
                   {/* Corner accents */}
