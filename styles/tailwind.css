@@ -1,0 +1,132 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-zapier-banner-bg: #1f3121;
+  --color-zapier-banner-link: #83f29a;
+  --color-zapier-white: #ffffff;
+
+  /* Header colors - OTC Turquoise Brand */
+  --color-header-bg: #FBFAF8;
+  --color-header-text: #201515;
+  --color-header-text-secondary: #6B7280;
+  --color-header-border: #E5E7EB;
+  --color-header-accent: #00A99D;
+  --color-header-accent-dark: #008C82;
+  --color-header-accent-light: #1FB8AC;
+  --color-header-highlight: #F0FDFC;
+  --color-header-hover: #F5F5F5;
+
+  /* AOG Colors - Orange & Dark Theme */
+  --color-aog-primary: #FF6B35;
+  --color-aog-primary-dark: #E85A2A;
+  --color-aog-primary-light: #FF8555;
+  --color-aog-dark: #1A1A1A;
+  --color-aog-gray: #2D2D2D;
+  --color-aog-gray-light: #4A4A4A;
+  --color-aog-gray-lighter: #6B6B6B;
+  --color-aog-bg: #0F0F0F;
+  --color-aog-text: #FFFFFF;
+  --color-aog-text-muted: #B0B0B0;
+
+  /* Fonts - Configure default font family */
+  --font-family-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  /* Animation for dropdown orange bar */
+  @keyframes slideRight {
+    from {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    to {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  /* Animations for Careers page */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* Animation for logo ticker */
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+
+  /* Shimmer animation for AI-powered buttons */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Reusable button components */
+  .btn-primary {
+    @apply inline-flex h-12 items-center justify-center rounded-md bg-header-accent px-6 py-3 text-sm font-bold text-white transition-all hover:bg-header-accent-dark md:text-base;
+  }
+
+  .btn-secondary {
+    @apply inline-flex h-12 items-center justify-center gap-2.5 rounded-md border border-header-text bg-white px-6 py-3 text-sm font-bold text-header-text transition-all hover:bg-header-hover md:text-base;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-full border-2 border-header-border bg-white px-5 py-2 text-xs font-semibold text-header-text transition-colors hover:bg-header-hover md:px-6 md:py-2.5 md:text-sm;
+  }
+}
