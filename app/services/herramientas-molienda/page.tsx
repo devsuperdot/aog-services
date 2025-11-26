@@ -134,7 +134,7 @@ const HeroSection = () => {
                 </span>
               </motion.div>
 
-              <h1 className="mb-8 overflow-hidden text-[clamp(2rem,8vw,8rem)] font-extralight leading-[0.9] tracking-[-0.03em] text-white">
+              <h1 className="mb-8 overflow-hidden text-[clamp(2rem,6.5vw,5.5rem)] font-extralight leading-[0.95] tracking-[-0.02em] text-white">
                 <TypeWriter text="Herramientas de" delay={0.4} speed={0.1} />
                 <br />
                 <TypeWriter text="Molienda y Pesca" delay={0.8} speed={0.1} />

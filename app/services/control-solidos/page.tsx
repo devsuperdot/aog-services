@@ -149,10 +149,10 @@ const HeroSection = () => {
                 <div className="relative h-full border-2 border-aog-primary/30 bg-gradient-to-br from-neutral-900 to-black">
                   {/* Platform Image */}
                   <Image
-                    src="/images/aog/platform-hero.jpg"
+                    src="/images/aog/control-de-solidos-2.jpeg"
                     alt="Control de Sólidos"
                     fill
-                    className="object-cover object-center opacity-70"
+                    className="object-cover object-center opacity-70 grayscale"
                   />
 
                   {/* Corner accents */}
@@ -203,10 +203,10 @@ const OverviewSection = () => {
             <div className="relative aspect-[4/5] overflow-hidden border-2 border-black/10 bg-gradient-to-br from-gray-100 to-gray-50">
               {/* Workers and Equipment Image */}
               <Image
-                src="/images/aog/workers-equipment.jpg"
+                src="/images/aog/control-de-solidos-3.jpeg"
                 alt="Sistema en Operación"
                 fill
-                className="object-cover object-center"
+                className="object-cover object-center grayscale"
               />
 
               {/* Decorative corners */}
@@ -404,10 +404,10 @@ const BenefitsSection = () => {
           <div className="relative aspect-[21/9] overflow-hidden border-2 border-black/10 bg-gradient-to-br from-gray-100 to-gray-50">
             {/* Panoramic Platform Image */}
             <Image
-              src="/images/aog/platform-hero.jpg"
+              src="/images/aog/control-de-solidos-2.jpeg"
               alt="Sistema Completo en Operación"
               fill
-              className="object-cover object-center"
+              className="object-cover object-center grayscale"
             />
 
             {/* Decorative frame */}
