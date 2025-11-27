@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { Clock, Zap, TrendingUp, Target, BarChart3, Award, ArrowRight } from 'lucide-react'
 import { TypeWriter, CodeReveal } from '@/components/animations/TypeWriter'
 import { TechButton, TechButtonDiagonal } from '@/components/ui/TechButton'
-import ImageWithPlaceholder from '@/components/aog/ImageWithPlaceholder'
 import {
   MinimalGridLinesDark as MinimalGridDark,
   MinimalGridLinesLight as MinimalGridLight,
@@ -30,73 +29,41 @@ const HeroSection = () => {
 
       <div className="relative z-10 flex min-h-[90vh] items-center px-4 py-20 sm:px-6 md:px-12 lg:px-16">
         <div className="mx-auto w-full max-w-[1600px]">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
-            <div className="lg:col-span-7">
-              <motion.div
-                initial={{ opacity: 0, y: 60 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.3 }}
-              >
-                <Link
-                  href="/solutions"
-                  className="mb-6 inline-flex items-center gap-2 border border-aog-primary/30 bg-black px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-aog-primary transition-all hover:border-aog-primary hover:bg-aog-primary/5"
-                >
-                  <ArrowRight className="h-3.5 w-3.5 rotate-180" />
-                  <span>Volver a soluciones</span>
-                </Link>
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
+            <Link
+              href="/solutions"
+              className="mb-6 inline-flex items-center gap-2 border border-aog-primary/30 bg-black px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-aog-primary transition-all hover:border-aog-primary hover:bg-aog-primary/5"
+            >
+              <ArrowRight className="h-3.5 w-3.5 rotate-180" />
+              <span>Volver a soluciones</span>
+            </Link>
 
-                <h1 className="mb-8 overflow-hidden text-[clamp(2rem,8vw,7rem)] font-extralight leading-[0.95] tracking-tight text-white">
-                  <TypeWriter text="Reducción de" delay={0.5} speed={0.12} />
-                  <br />
-                  <span className="text-aog-primary">
-                    <TypeWriter text="NPT" delay={1.4} speed={0.12} />
-                  </span>
-                </h1>
+            <h1 className="mb-8 overflow-hidden text-[clamp(2rem,8vw,7rem)] font-extralight leading-[0.95] tracking-tight text-white">
+              <TypeWriter text="Reducción de" delay={0.5} speed={0.12} />
+              <br />
+              <span className="text-aog-primary">
+                <TypeWriter text="NPT" delay={1.4} speed={0.12} />
+              </span>
+            </h1>
 
-                <div className="mb-8 h-px w-24 bg-aog-primary" />
+            <div className="mb-8 h-px w-24 bg-aog-primary" />
 
-                <p className="mb-8 max-w-2xl text-lg font-light leading-relaxed text-white/70 md:text-xl">
-                  Minimizamos el tiempo no productivo (NPT) maximizando la eficiencia operativa y
-                  la productividad del pozo
-                </p>
+            <p className="mb-12 max-w-2xl text-lg font-light leading-relaxed text-white/70 md:text-xl">
+              Minimizamos el tiempo no productivo (NPT) maximizando la eficiencia operativa y
+              la productividad del pozo
+            </p>
 
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <TechButton href="/contact" variant="primary" size="lg">
-                    Solicitar análisis
-                  </TechButton>
-                  <TechButtonDiagonal href="#features">Ver soluciones</TechButtonDiagonal>
-                </div>
-              </motion.div>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <TechButton href="/contact" variant="primary" size="lg">
+                Solicitar análisis
+              </TechButton>
+              <TechButtonDiagonal href="#features">Ver soluciones</TechButtonDiagonal>
             </div>
-
-            <div className="lg:col-span-5">
-              <motion.div
-                initial={{ opacity: 0, x: 60 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
-                className="relative h-[400px] md:h-[500px] lg:h-[600px]"
-              >
-                <div className="relative h-full border-2 border-aog-primary/30 bg-gradient-to-br from-neutral-900 to-black">
-                  <ImageWithPlaceholder
-                    src="/images/aog/npt-hero.jpeg"
-                    alt="Reducción de NPT"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="grayscale"
-                    placeholderIcon={
-                      <div className="mx-auto mb-4 h-32 w-32 rounded-full border-2 border-aog-primary/30 bg-gradient-to-br from-aog-primary/10 to-transparent p-8">
-                        <Clock className="h-full w-full text-aog-primary" strokeWidth={1} />
-                      </div>
-                    }
-                    placeholderText="Imagen: Optimización de Tiempos"
-                    placeholderSubtext="Dimensión recomendada: 1200x1600px"
-                  />
-
-                  <div className="absolute left-0 top-0 h-20 w-20 border-l-2 border-t-2 border-aog-primary" />
-                  <div className="absolute bottom-0 right-0 h-20 w-20 border-b-2 border-r-2 border-aog-primary" />
-                </div>
-              </motion.div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

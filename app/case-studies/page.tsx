@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { FileText, TrendingUp, CheckCircle2, Award, ArrowRight } from 'lucide-react'
 import { TypeWriter, CodeReveal } from '@/components/animations/TypeWriter'
 import { TechButton, TechButtonDiagonal } from '@/components/ui/TechButton'
-import ImageWithPlaceholder from '@/components/aog/ImageWithPlaceholder'
 import {
   MinimalGridLinesDark as MinimalGridDark,
   MinimalGridLinesLight as MinimalGridLight,
@@ -81,7 +80,6 @@ const CaseStudiesSection = () => {
         '99% de eficiencia en separación de sólidos',
         'Mejora del 30% en tiempo de perforación',
       ],
-      image: '/images/aog/case-study-1.jpeg',
     },
     {
       title: 'Programa de Mantenimiento Preventivo',
@@ -94,7 +92,6 @@ const CaseStudiesSection = () => {
         'Aumento del 50% en vida útil de equipos',
         'Ahorro anual de $2M USD',
       ],
-      image: '/images/aog/case-study-2.jpeg',
     },
     {
       title: 'Servicios Técnicos Especializados',
@@ -107,7 +104,6 @@ const CaseStudiesSection = () => {
         '100% cumplimiento normativo',
         'Mejora continua en KPIs operacionales',
       ],
-      image: '/images/aog/case-study-3.jpeg',
     },
   ]
 
@@ -137,32 +133,9 @@ const CaseStudiesSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: idx * 0.2 }}
-              className="grid gap-12 lg:grid-cols-12 lg:gap-20"
+              className="mx-auto max-w-4xl"
             >
-              {/* Image */}
-              <div className={`lg:col-span-5 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <div className="relative aspect-[4/5] overflow-hidden border-2 border-black/10 bg-gradient-to-br from-gray-100 to-gray-50">
-                  <ImageWithPlaceholder
-                    src={study.image}
-                    alt={study.title}
-                    sizes="(max-width: 768px) 100vw, 40vw"
-                    className="grayscale"
-                    placeholderIcon={
-                      <div className="mx-auto mb-4 h-24 w-24 rounded-full border-2 border-aog-primary/30 bg-gradient-to-br from-aog-primary/10 to-transparent p-6">
-                        <FileText className="h-full w-full text-aog-primary" strokeWidth={1} />
-                      </div>
-                    }
-                    placeholderText={`Caso de Estudio ${idx + 1}`}
-                    placeholderSubtext="Dimensión recomendada: 800x1000px"
-                  />
-
-                  <div className="absolute left-0 top-0 h-16 w-16 border-l-4 border-t-4 border-aog-primary/50" />
-                  <div className="absolute bottom-0 right-0 h-16 w-16 border-b-4 border-r-4 border-aog-primary/50" />
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="lg:col-span-7">
+              <div>
                 <div className="mb-4 text-[10px] font-light uppercase tracking-[0.3em] text-aog-primary">
                   {study.client}
                 </div>
