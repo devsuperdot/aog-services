@@ -76,10 +76,10 @@ const HeroSection = () => {
             <div className="relative h-[400px] overflow-hidden border-2 border-aog-primary/30 bg-gradient-to-br from-neutral-900 to-black sm:h-[500px] lg:h-[600px]">
               {/* Platform Image */}
               <Image
-                src="/images/aog/platform-hero.jpg"
+                src="/images/aog/equipos-eperif-1.jpeg"
                 alt="Equipos Periféricos"
                 fill
-                className="object-cover object-center opacity-70"
+                className="object-cover object-center opacity-70 grayscale"
               />
               {/* Corner accents */}
               <div className="absolute left-0 top-0 h-24 w-24 border-l-2 border-t-2 border-aog-primary" />
@@ -114,10 +114,10 @@ const OverviewSection = () => {
               <div className="relative h-full w-full">
                 {/* Workers and Equipment Image */}
                 <Image
-                  src="/images/aog/workers-equipment.jpg"
+                  src="/images/aog/equipos-perif-1-2.jpeg"
                   alt="Vista de Equipos"
                   fill
-                  className="object-cover object-center opacity-70"
+                  className="object-cover object-center opacity-70 grayscale"
                 />
                 {/* Corner accents */}
                 <div className="absolute left-0 top-0 h-20 w-20 border-l-2 border-t-2 border-aog-primary" />
@@ -245,10 +245,16 @@ const EquipmentSection = () => {
               {/* Equipment Image */}
               <div className="relative mb-6 aspect-video overflow-hidden border border-white/10 bg-gradient-to-br from-neutral-900 to-black">
                 <Image
-                  src={idx % 2 === 0 ? '/images/aog/platform-hero.jpg' : '/images/aog/workers-equipment.jpg'}
+                  src={
+                    idx === 2
+                      ? '/images/aog/equipos-perif-2.jpeg'
+                      : idx % 2 === 0
+                        ? '/images/aog/platform-hero.jpg'
+                        : '/images/aog/workers-equipment.jpg'
+                  }
                   alt={item.name}
                   fill
-                  className="object-cover object-center opacity-60"
+                  className="object-cover object-center opacity-60 grayscale"
                 />
               </div>
 
@@ -327,14 +333,12 @@ const BenefitsSection = () => {
           className="mt-16"
         >
           <div className="relative aspect-[21/9] overflow-hidden border-2 border-aog-primary/30 bg-gradient-to-br from-neutral-900 to-black">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <Settings className="mx-auto mb-4 h-24 w-24 text-aog-primary/50" strokeWidth={1} />
-                <p className="text-sm font-light uppercase tracking-wider text-white/30">
-                  Imagen Panorámica: Equipos en Operación
-                </p>
-              </div>
-            </div>
+            <Image
+              src="/images/aog/equipos-perif-2.jpeg"
+              alt="Equipos en Operación"
+              fill
+              className="object-cover object-center grayscale"
+            />
             {/* Corner accents */}
             <div className="absolute left-0 top-0 h-20 w-20 border-l-2 border-t-2 border-aog-primary" />
             <div className="absolute bottom-0 right-0 h-20 w-20 border-b-2 border-r-2 border-aog-primary" />
