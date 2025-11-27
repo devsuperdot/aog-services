@@ -3,7 +3,16 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
-import { Shield, CheckCircle2, AlertTriangle, Users, FileCheck, Award, ArrowRight } from 'lucide-react'
+import {
+  TrendingUp,
+  Target,
+  BarChart3,
+  Gauge,
+  Zap,
+  ArrowRight,
+  Cpu,
+  Activity,
+} from 'lucide-react'
 import { TypeWriter, CodeReveal } from '@/components/animations/TypeWriter'
 import { TechButton, TechButtonDiagonal } from '@/components/ui/TechButton'
 import {
@@ -49,7 +58,7 @@ const HeroSection = () => {
                 </Link>
 
                 <h1 className="mb-8 overflow-hidden text-[clamp(2rem,8vw,7rem)] font-extralight leading-[0.95] tracking-tight text-white">
-                  <TypeWriter text="Seguridad" delay={0.5} speed={0.12} />
+                  <TypeWriter text="Optimización" delay={0.5} speed={0.12} />
                   <br />
                   <span className="text-aog-primary">
                     <TypeWriter text="Operacional" delay={1.2} speed={0.12} />
@@ -59,8 +68,8 @@ const HeroSection = () => {
                 <div className="mb-8 h-px w-24 bg-aog-primary" />
 
                 <p className="mb-8 max-w-2xl text-lg font-light leading-relaxed text-white/70 md:text-xl">
-                  Priorizamos la seguridad en todas nuestras operaciones, garantizando un entorno
-                  protegido para nuestro personal y clientes
+                  Maximizamos la eficiencia de sus operaciones mediante análisis avanzado, tecnología de
+                  punta y metodologías probadas
                 </p>
 
                 <div className="flex flex-col gap-4 sm:flex-row">
@@ -82,10 +91,10 @@ const HeroSection = () => {
                 <div className="relative flex h-full items-center justify-center border-2 border-aog-primary/30 bg-gradient-to-br from-neutral-900 to-black">
                   <div className="text-center">
                     <div className="mx-auto mb-6 flex h-32 w-32 items-center justify-center rounded-full border-2 border-aog-primary/30 bg-gradient-to-br from-aog-primary/10 to-transparent">
-                      <Shield className="h-16 w-16 text-aog-primary" strokeWidth={1} />
+                      <TrendingUp className="h-16 w-16 text-aog-primary" strokeWidth={1} />
                     </div>
                     <div className="text-sm font-light uppercase tracking-wider text-white/40">
-                      Seguridad Operacional
+                      Optimización de Procesos
                     </div>
                   </div>
 
@@ -108,28 +117,40 @@ const FeaturesSection = () => {
 
   const features = [
     {
-      icon: Shield,
-      title: 'Protocolos de Seguridad',
+      icon: BarChart3,
+      title: 'Análisis de Rendimiento',
       description:
-        'Implementación de protocolos rigurosos que cumplen con estándares internacionales de seguridad en la industria petrolera.',
+        'Monitoreo continuo y análisis de datos operacionales para identificar oportunidades de mejora.',
     },
     {
-      icon: Users,
-      title: 'Capacitación Continua',
+      icon: Target,
+      title: 'Optimización de Procesos',
       description:
-        'Programas de entrenamiento especializado para todo el personal operativo en prácticas de seguridad.',
+        'Rediseño y mejora de flujos de trabajo para maximizar la productividad y reducir tiempos muertos.',
     },
     {
-      icon: AlertTriangle,
-      title: 'Prevención de Riesgos',
+      icon: Gauge,
+      title: 'Control de Eficiencia',
       description:
-        'Sistemas avanzados de identificación y mitigación de riesgos operacionales antes de que ocurran incidentes.',
+        'Sistemas de medición y control que garantizan el máximo rendimiento de equipos y personal.',
     },
     {
-      icon: FileCheck,
-      title: 'Inspecciones y Auditorías',
+      icon: Cpu,
+      title: 'Automatización Inteligente',
       description:
-        'Inspecciones regulares y auditorías de seguridad para garantizar el cumplimiento normativo continuo.',
+        'Implementación de tecnologías que automatizan tareas repetitivas y optimizan recursos.',
+    },
+    {
+      icon: Activity,
+      title: 'Monitoreo en Tiempo Real',
+      description:
+        'Sistemas de visualización y alertas que permiten respuestas rápidas ante desviaciones.',
+    },
+    {
+      icon: Zap,
+      title: 'Mejora Continua',
+      description:
+        'Metodologías ágiles que aseguran la evolución constante de sus operaciones.',
     },
   ]
 
@@ -148,11 +169,11 @@ const FeaturesSection = () => {
             Características
           </div>
           <h2 className="mb-6 overflow-hidden text-[clamp(2rem,5vw,4rem)] font-light leading-[1.1] tracking-tight text-black">
-            {isInView && <CodeReveal text="Soluciones de Seguridad" delay={0.2} />}
+            {isInView && <CodeReveal text="Soluciones de Optimización" delay={0.2} />}
           </h2>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, idx) => (
             <motion.div
               key={feature.title}
@@ -174,14 +195,73 @@ const FeaturesSection = () => {
   )
 }
 
+// Benefits Section
+const BenefitsSection = () => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-100px' })
+
+  const benefits = [
+    { label: 'Reducción de Costos', value: 'Hasta 30%' },
+    { label: 'Aumento de Productividad', value: 'Hasta 40%' },
+    { label: 'Tiempo de Inactividad', value: '-50%' },
+    { label: 'ROI Promedio', value: '12 meses' },
+  ]
+
+  return (
+    <section ref={ref} className="relative bg-black py-20 md:py-32">
+      <MinimalGridDark />
+
+      <div className="relative z-10 mx-auto max-w-[1600px] px-4 sm:px-6 md:px-12 lg:px-16">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="mb-16 text-center"
+        >
+          <div className="mb-4 text-[10px] font-light uppercase tracking-[0.3em] text-aog-primary">
+            Resultados Comprobados
+          </div>
+          <h2 className="text-[clamp(2rem,5vw,4rem)] font-light text-white">
+            Impacto en sus Operaciones
+          </h2>
+        </motion.div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {benefits.map((benefit, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="group border border-white/10 bg-black p-8 text-center transition-all hover:border-aog-primary hover:bg-neutral-950"
+            >
+              <motion.div
+                className="mb-4 text-5xl font-light text-aog-primary"
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                transition={{ duration: 0.8, delay: idx * 0.1 + 0.3 }}
+              >
+                {benefit.value}
+              </motion.div>
+              <div className="text-sm font-light uppercase tracking-wider text-white/60">
+                {benefit.label}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // CTA Section
 const CTASection = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
   return (
-    <section ref={ref} className="relative bg-black py-20 md:py-32">
-      <MinimalGridDark />
+    <section ref={ref} className="relative bg-white py-20 md:py-32">
+      <MinimalGridLight />
 
       <div className="relative z-10 mx-auto max-w-[1000px] px-4 text-center sm:px-6 md:px-12 lg:px-16">
         <motion.div
@@ -189,24 +269,24 @@ const CTASection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <div className="mx-auto mb-8 inline-flex h-16 w-16 items-center justify-center border-2 border-aog-primary bg-black">
-            <Shield className="h-8 w-8 text-aog-primary" strokeWidth={1.5} />
+          <div className="mx-auto mb-8 inline-flex h-16 w-16 items-center justify-center border-2 border-aog-primary bg-white">
+            <TrendingUp className="h-8 w-8 text-aog-primary" strokeWidth={1.5} />
           </div>
 
-          <h2 className="mb-6 text-[clamp(2rem,5vw,4rem)] font-light leading-[1.1] text-white">
-            Protege tu
+          <h2 className="mb-6 text-[clamp(2rem,5vw,4rem)] font-light leading-[1.1] text-black">
+            Optimice su
             <br />
             operación hoy
           </h2>
 
-          <p className="mx-auto mb-12 max-w-2xl font-light leading-relaxed text-white/60">
-            Solicita una evaluación de seguridad o agenda una consultoría para conocer cómo podemos
-            mejorar la seguridad en tus operaciones.
+          <p className="mx-auto mb-12 max-w-2xl font-light leading-relaxed text-black/60">
+            Solicite un análisis gratuito de sus operaciones y descubra cómo podemos ayudarle a
+            alcanzar nuevos niveles de eficiencia.
           </p>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <TechButton href="/contact" variant="primary" size="lg">
-              Solicitar evaluación
+              Solicitar análisis
             </TechButton>
             <TechButtonDiagonal href="/services">Ver servicios</TechButtonDiagonal>
           </div>
@@ -216,11 +296,12 @@ const CTASection = () => {
   )
 }
 
-export default function SafetySolutionPage() {
+export default function OptimizationSolutionPage() {
   return (
     <main className="bg-white">
       <HeroSection />
       <FeaturesSection />
+      <BenefitsSection />
       <CTASection />
     </main>
   )
