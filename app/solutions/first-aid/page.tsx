@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const metadata = {
-  title: 'Primeros Auxilios | OTC Petroleum',
+  title: 'Primeros Auxilios | AOG Services',
   description: 'Cursos de RCP y manejo de emergencias',
 }
 

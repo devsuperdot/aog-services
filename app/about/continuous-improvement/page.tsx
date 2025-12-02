@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const metadata = {
-  title: 'Mejora Continua | OTC Petroleum',
+  title: 'Mejora Continua | AOG Services',
   description: 'Perfeccionamiento constante de nuestros servicios',
 }
 

@@ -8,7 +8,7 @@ import type { LucideIcon } from 'lucide-react'
 /**
  * ServicesSection Component
  *
- * Displays the three main service categories of OTC Petroleum:
+ * Displays the three main service categories of AOG Services:
  * - Inspección
  * - Certificación
  * - Capacitación

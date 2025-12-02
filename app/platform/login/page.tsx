@@ -180,7 +180,7 @@ export default function LoginPage() {
                       <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-header-accent to-cyan-600">
                         <GraduationCap size={24} className="text-white" />
                       </div>
-                      <span className="text-2xl font-bold text-header-text">OTC Petroleum</span>
+                      <span className="text-2xl font-bold text-header-text">AOG Services</span>
                     </div>
                   </Link>
                   <h1 className="mb-2 text-3xl font-bold tracking-tight text-header-text">

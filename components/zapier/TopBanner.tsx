@@ -7,11 +7,11 @@ import Link from 'next/link'
 /**
  * TopBanner Component
  *
- * Promotional banner for OTC Petroleum services.
+ * Promotional banner for AOG Services.
  * Features:
  * - Dismissible with localStorage persistence
  * - Relevant content for industrial certification business
- * - Turquoise brand colors
+ * - Brand colors
  * - Responsive design
  * - Accessible (ARIA labels, keyboard navigation)
  */
@@ -28,7 +28,7 @@ export default function TopBanner({
   message = 'Servicio de emergencia disponible 24/7 • Certificaciones express en 48 horas',
   linkText = 'Solicitar ahora →',
   linkHref = '/get-quote',
-  storageKey = 'otc-banner-closed',
+  storageKey = 'aog-banner-closed',
   variant = 'promo'
 }: TopBannerProps) {
   const [show, setShow] = useState(false)

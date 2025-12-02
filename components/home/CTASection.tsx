@@ -46,7 +46,7 @@ export default function CTASection(): React.ReactElement {
 
             {/* Description */}
             <p className="mb-10 text-lg leading-relaxed text-gray-600 md:text-xl">
-              Únase a cientos de empresas que confían en OTC Petroleum para sus necesidades de
+              Únase a cientos de empresas que confían en AOG Services para sus necesidades de
               inspección, certificación y capacitación. Obtenga una cotización personalizada hoy mismo.
             </p>
 
@@ -89,7 +89,7 @@ export default function CTASection(): React.ReactElement {
               </a>
 
               <a
-                href="mailto:contacto@otcpetroleum.com"
+                href="mailto:contacto@aogservices.com"
                 className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 p-6 backdrop-blur-sm transition-all hover:scale-105 hover:border-header-accent hover:shadow-lg"
               >
                 <div className="flex items-center gap-4">
@@ -98,7 +98,7 @@ export default function CTASection(): React.ReactElement {
                   </div>
                   <div className="text-left">
                     <div className="text-xs font-medium text-gray-500">Escríbanos</div>
-                    <div className="text-sm font-bold text-gray-900">contacto@otcpetroleum.com</div>
+                    <div className="text-sm font-bold text-gray-900">contacto@aogservices.com</div>
                   </div>
                 </div>
                 {/* Hover gradient effect */}

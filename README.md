@@ -1,10 +1,10 @@
-# OTC Oilfield - Plataforma de Capacitación
+# AOG Services - Plataforma de Servicios Industriales
 
-Plataforma web de gestión de capacitación y desarrollo de personal para la industria petrolera.
+Plataforma web de servicios industriales para la industria del petróleo y gas.
 
 ## Descripción del Proyecto
 
-Sistema integral para la administración de cursos, certificaciones y seguimiento del personal en el sector petrolero. Construido con Next.js 15 y tecnologías empresariales modernas.
+Sistema integral para la administración de servicios de inspección, certificación y capacitación en el sector petrolero. Construido con Next.js 15 y tecnologías empresariales modernas.
 
 ## Estado del Proyecto
 
@@ -79,7 +79,7 @@ pnpm analyze
 ## Estructura del Proyecto
 
 ```
-otc-oilfield-platform/
+aog-services/
 ├── app/              # Next.js App Router
 │   ├── api/         # API routes
 │   └── page.tsx     # Página principal
@@ -95,4 +95,4 @@ El proyecto utiliza T3 Env para manejo type-safe de variables de entorno. Ver `e
 
 ## Licencia
 
-Propietario - OTC Oilfield
+Propietario - AOG Services / Alze Group

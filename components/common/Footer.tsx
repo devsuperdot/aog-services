@@ -82,10 +82,10 @@ const certifications = [
 ]
 
 const socialLinks = [
-  { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Youtube, href: '#', label: 'YouTube' }
+  { icon: Facebook, href: 'https://facebook.com/aogservices', label: 'Facebook' },
+  { icon: Linkedin, href: 'https://linkedin.com/company/aog-services', label: 'LinkedIn' },
+  { icon: Instagram, href: 'https://instagram.com/aogservices', label: 'Instagram' },
+  { icon: Youtube, href: 'https://youtube.com/@aogservices', label: 'YouTube' }
 ]
 
 export default function Footer(): React.ReactElement {
@@ -102,7 +102,7 @@ export default function Footer(): React.ReactElement {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-header-accent">
                 <Shield size={24} className="text-white" />
               </div>
-              <span className="text-xl font-bold text-white">OTC Petroleum</span>
+              <span className="text-xl font-bold text-white">AOG Services</span>
             </Link>
 
             <p className="mb-6 text-sm leading-relaxed text-gray-400">
@@ -114,22 +114,22 @@ export default function Footer(): React.ReactElement {
             {/* Contact Info */}
             <div className="space-y-3">
               <a
-                href="tel:+529381234567"
+                href="tel:+529931120389"
                 className="flex items-center gap-3 text-sm text-gray-400 transition-colors hover:text-header-accent"
               >
                 <Phone size={18} className="shrink-0" />
-                <span>+52 (938) 123-4567</span>
+                <span>+52 993 112 0389</span>
               </a>
               <a
-                href="mailto:contacto@otcpetroleum.com"
+                href="mailto:contacto@aogservices.com"
                 className="flex items-center gap-3 text-sm text-gray-400 transition-colors hover:text-header-accent"
               >
                 <Mail size={18} className="shrink-0" />
-                <span>contacto@otcpetroleum.com</span>
+                <span>contacto@aogservices.com</span>
               </a>
               <div className="flex items-start gap-3 text-sm text-gray-400">
                 <MapPin size={18} className="mt-0.5 shrink-0" />
-                <span>Av. Industria Petrolera #123<br />Ciudad del Carmen, Campeche</span>
+                <span>Villahermosa, Tabasco<br />México</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-gray-400">
                 <Clock size={18} className="shrink-0" />
@@ -221,7 +221,7 @@ export default function Footer(): React.ReactElement {
         <div className="mx-auto w-full max-w-7xl px-6 py-6 md:px-8">
           <div className="flex flex-col items-center justify-between gap-4 text-sm text-gray-500 md:flex-row">
             <div className="text-center md:text-left">
-              © {currentYear} OTC Petroleum. Todos los derechos reservados.
+              © {currentYear} AOG Services. Todos los derechos reservados.
             </div>
             <div className="flex flex-wrap justify-center gap-6">
               <Link href="/privacy" className="transition-colors hover:text-header-accent">

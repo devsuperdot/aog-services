@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const metadata = {
-  title: 'Construcción | OTC Petroleum',
+  title: 'Construcción | AOG Services',
   description: 'Servicios integrales para la industria de la construcción',
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const metadata = {
-  title: 'Seguridad y Salud | OTC Petroleum',
+  title: 'Seguridad y Salud | AOG Services',
   description: 'Cultura de prevención y cero incidentes',
 }
 

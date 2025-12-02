@@ -7,7 +7,7 @@ import type { LucideIcon } from 'lucide-react'
 /**
  * ProcessSection Component
  *
- * Displays the step-by-step process for working with OTC
+ * Displays the step-by-step process for working with AOG Services
  */
 
 interface ProcessStep {

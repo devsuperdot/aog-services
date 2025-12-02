@@ -2,8 +2,8 @@ import React from 'react'
 import CertificationsSection from '@/components/home/CertificationsSection'
 
 export const metadata = {
-  title: 'Certificaciones | OTC Petroleum',
-  description: 'Certificaciones y acreditaciones de OTC Petroleum',
+  title: 'Certificaciones | AOG Services',
+  description: 'Certificaciones y acreditaciones de AOG Services',
 }
 
 export default function CertificationsPage() {

@@ -1,6 +1,6 @@
 /**
  * Trusted Companies
- * Companies that trust OTC Petroleum for their safety and certification needs
+ * Companies that trust AOG Services for their safety and certification needs
  */
 
 export interface CompanyLogo {

@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const metadata = {
-  title: 'Política de Calidad | OTC Petroleum',
+  title: 'Política de Calidad | AOG Services',
   description: 'Compromiso con la excelencia y mejora continua',
 }
 

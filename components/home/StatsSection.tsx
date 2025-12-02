@@ -7,7 +7,7 @@ import type { LucideIcon } from 'lucide-react'
 /**
  * StatsSection Component
  *
- * Displays key statistics and achievements of OTC Petroleum
+ * Displays key statistics and achievements of AOG Services
  */
 
 interface Stat {

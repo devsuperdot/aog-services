@@ -82,9 +82,6 @@ export default function AOGFooter() {
                     />
                   </div>
                 </div>
-                <p className="mt-2 text-xs font-light text-white/30 transition-colors group-hover:text-white/50">
-                  Parte de Alze Group
-                </p>
               </a>
             </div>
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const metadata = {
-  title: 'Seguridad Industrial | OTC Petroleum',
+  title: 'Seguridad Industrial | AOG Services',
   description: 'Cursos de seguridad básica y avanzada certificados',
 }
 

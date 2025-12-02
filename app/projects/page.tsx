@@ -1,8 +1,8 @@
 import React from 'react'
 
 export const metadata = {
-  title: 'Proyectos | OTC Petroleum',
-  description: 'Proyectos realizados por OTC Petroleum en la industria petrolera y de construcción',
+  title: 'Proyectos | AOG Services',
+  description: 'Proyectos realizados por AOG Services en la industria petrolera y de construcción',
 }
 
 export default function ProjectsPage() {

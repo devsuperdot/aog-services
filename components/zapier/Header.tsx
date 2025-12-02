@@ -78,47 +78,47 @@ const secondaryNavLinks: NavLink[] = [
 const megaMenuContent: Record<string, MegaMenuSection[]> = {
   Services: [
     {
-      title: 'Inspección',
+      title: 'Control y Equipos',
       items: [
         {
-          title: 'Ensayos No Destructivos',
-          description: 'Ultrasonido, líquidos penetrantes y partículas magnéticas',
-          href: '/services/ndt-testing',
+          title: 'Control de Sólidos',
+          description: 'Sistemas de control y separación de sólidos',
+          href: '/services/control-solidos',
           icon: Shield,
         },
         {
-          title: 'Inspección Visual',
-          description: 'Evaluación detallada de equipos y estructuras',
-          href: '/services/visual-inspection',
+          title: 'Equipos Periféricos',
+          description: 'Equipos complementarios para operaciones',
+          href: '/services/equipos-perifericos',
           icon: Sparkles,
         },
         {
-          title: 'Radiografía Industrial',
-          description: 'Interpretación de imágenes radiográficas',
-          href: '/services/radiography',
+          title: 'Herramientas de Molienda',
+          description: 'Herramientas especializadas de molienda',
+          href: '/services/herramientas-molienda',
           icon: Database,
         },
       ],
     },
     {
-      title: 'Certificación',
+      title: 'Servicios Industriales',
       items: [
         {
-          title: 'Equipos de Izaje',
-          description: 'Grúas, aparejos y accesorios certificados',
-          href: '/services/lifting-equipment',
+          title: 'Mantenimiento Industrial',
+          description: 'Mantenimiento preventivo y correctivo',
+          href: '/services/mantenimiento-industrial',
           icon: TrendingUp,
         },
         {
-          title: 'Maquinaria Pesada',
-          description: 'Certificación de montacargas y plataformas',
-          href: '/services/heavy-machinery',
+          title: 'Servicios Técnicos',
+          description: 'Soporte técnico especializado',
+          href: '/services/servicios-tecnicos',
           icon: Building2,
         },
         {
-          title: 'Certificación de Personal',
-          description: 'Operadores y técnicos certificados',
-          href: '/services/personnel-certification',
+          title: 'Energía e Iluminación',
+          description: 'Soluciones de energía e iluminación industrial',
+          href: '/services/energia-iluminacion',
           icon: Users,
         },
       ],
@@ -302,7 +302,7 @@ export default function Header() {
     >
       <div className="mx-auto flex w-full items-center justify-between gap-4 px-4 py-3 md:px-6 lg:px-10">
         {/* Logo */}
-        <Link href="/" className="flex shrink-0 items-center gap-2 md:gap-3" aria-label="OTC Oilfield">
+        <Link href="/" className="flex shrink-0 items-center gap-2 md:gap-3" aria-label="AOG Services">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-header-accent md:h-10 md:w-10">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="md:h-6 md:w-6">
               <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z" fill="white"/>
@@ -310,8 +310,8 @@ export default function Header() {
             </svg>
           </div>
           <div className="flex flex-col">
-            <span className="text-base font-bold leading-none text-header-accent md:text-lg">OTC</span>
-            <span className="text-[10px] font-medium leading-none text-header-text-secondary md:text-xs">Oilfield</span>
+            <span className="text-base font-bold leading-none text-header-accent md:text-lg">AOG</span>
+            <span className="text-[10px] font-medium leading-none text-header-text-secondary md:text-xs">Services</span>
           </div>
         </Link>
 

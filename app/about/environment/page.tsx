@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const metadata = {
-  title: 'Medio Ambiente | OTC Petroleum',
+  title: 'Medio Ambiente | AOG Services',
   description: 'Compromiso con la protección ambiental y sostenibilidad',
 }
 

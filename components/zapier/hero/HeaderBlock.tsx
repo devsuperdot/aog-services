@@ -7,7 +7,7 @@ import { ArrowRight, Shield, Award, CheckCircle2 } from 'lucide-react'
 /**
  * HeaderBlock Component
  *
- * Minimalist and elegant hero for OTC Oilfield - Tech-forward design
+ * Minimalist and elegant hero for AOG Services - Tech-forward design
  */
 
 export default function HeaderBlock(): React.ReactElement {

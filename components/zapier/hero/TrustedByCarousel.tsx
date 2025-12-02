@@ -6,7 +6,7 @@ import Image from 'next/image'
 /**
  * TrustedByCarousel Component
  *
- * Displays companies that trust OTC Petroleum
+ * Displays companies that trust AOG Services
  */
 
 interface CompanyLogo {

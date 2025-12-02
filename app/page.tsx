@@ -350,119 +350,54 @@ const ServicesSection = () => {
               className="group relative flex"
             >
               <Link href={service.slug ? `/services/${service.slug}` : '/services'} className="block w-full">
-                {/* Card container with gradient background */}
-                <div className="relative flex h-full min-h-[420px] flex-col overflow-hidden border border-black/10 bg-gradient-to-br from-white via-white to-gray-50 p-8 transition-all duration-500 group-hover:scale-[1.02] group-hover:border-aog-primary/30 group-hover:shadow-2xl group-hover:shadow-aog-primary/10 md:min-h-[460px] md:p-10 lg:min-h-[480px] lg:p-12">
-                  {/* Animated gradient overlay */}
-                  <motion.div
-                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                    style={{
-                      background:
-                        'radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,107,53,0.1) 0%, transparent 50%)',
-                    }}
-                  />
+                {/* Card container - Refined minimal design */}
+                <div className="relative flex h-full min-h-[420px] flex-col overflow-hidden border border-black/5 bg-white p-8 transition-all duration-300 group-hover:border-aog-primary/20 group-hover:shadow-lg group-hover:shadow-black/5 md:min-h-[460px] md:p-10 lg:min-h-[480px] lg:p-12">
+                  {/* Subtle hover overlay */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-aog-primary/0 to-aog-primary/0 transition-all duration-300 group-hover:from-aog-primary/[0.02] group-hover:to-transparent" />
 
-                  {/* Floating particles on hover */}
-                  <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    {[...Array(3)].map((_, i) => {
-                      // Use deterministic values based on index
-                      const xOffset = (i % 2 === 0 ? 1 : -1) * (10 + i * 5)
-
-                      return (
-                        <motion.div
-                          key={i}
-                          className="absolute h-1 w-1 rounded-full bg-aog-primary"
-                          initial={false}
-                          animate={{
-                            y: [0, -100],
-                            x: [0, xOffset],
-                            opacity: [0, 1, 0],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            delay: i * 0.3,
-                            ease: 'easeOut',
-                          }}
-                          style={{
-                            left: `${20 + i * 30}%`,
-                            bottom: '20%',
-                          }}
-                        />
-                      )
-                    })}
-                  </div>
-
-                  {/* Corner accents */}
-                  <div className="absolute left-0 top-0 h-16 w-16 border-l-2 border-t-2 border-aog-primary/0 transition-all duration-500 group-hover:border-aog-primary/50" />
-                  <div className="absolute bottom-0 right-0 h-16 w-16 border-b-2 border-r-2 border-aog-primary/0 transition-all duration-500 group-hover:border-aog-primary/50" />
+                  {/* Minimal corner accents */}
+                  <div className="absolute left-0 top-0 h-8 w-8 border-l border-t border-black/5 transition-all duration-300 group-hover:border-aog-primary/30" />
+                  <div className="absolute bottom-0 right-0 h-8 w-8 border-b border-r border-black/5 transition-all duration-300 group-hover:border-aog-primary/30" />
 
                   {/* Content */}
                   <div className="relative z-10 flex flex-1 flex-col">
-                    {/* Number with animated bar */}
-                    <div className="mb-6 flex items-center gap-3 md:mb-8">
-                      <div className="text-[10px] font-light tracking-[0.3em] text-black/30 md:text-xs">
+                    {/* Number - minimal */}
+                    <div className="mb-6 flex items-center gap-2 md:mb-8">
+                      <div className="text-[10px] font-light tracking-[0.2em] text-black/20 md:text-xs">
                         0{idx + 1}
                       </div>
-                      <motion.div
-                        className="h-px bg-aog-primary/30"
-                        initial={{ width: 20 }}
-                        whileInView={{ width: 40 }}
-                        transition={{ duration: 0.8, delay: idx * 0.1 + 0.3 }}
-                      />
+                      <div className="h-px w-8 bg-black/10" />
                     </div>
 
-                    {/* Icon with glow */}
-                    <div className="relative mb-6 inline-flex md:mb-8">
-                      {/* Glow effect */}
-                      <div className="absolute inset-0 rounded-full bg-aog-primary/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
-                      {/* Icon container */}
-                      <motion.div
-                        className="relative flex h-14 w-14 items-center justify-center border-2 border-aog-primary/30 bg-white transition-all duration-500 group-hover:border-aog-primary group-hover:bg-aog-primary/5 md:h-16 md:w-16"
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.6 }}
-                      >
+                    {/* Icon - clean and simple */}
+                    <div className="mb-6 inline-flex md:mb-8">
+                      <div className="flex h-12 w-12 items-center justify-center border border-black/10 bg-white transition-all duration-300 group-hover:border-aog-primary/40 md:h-14 md:w-14">
                         <service.icon
-                          className="h-6 w-6 text-aog-primary transition-transform duration-500 group-hover:scale-110 md:h-7 md:w-7"
+                          className="h-5 w-5 text-aog-primary/80 transition-colors duration-300 group-hover:text-aog-primary md:h-6 md:w-6"
                           strokeWidth={1.5}
                         />
-                      </motion.div>
+                      </div>
                     </div>
 
-                    {/* Title with gradient on hover */}
-                    <h3 className="mb-4 text-xl font-light tracking-tight text-black transition-all duration-300 group-hover:text-aog-primary md:mb-6 md:text-2xl">
+                    {/* Title - refined */}
+                    <h3 className="mb-4 text-xl font-light tracking-tight text-black transition-colors duration-300 group-hover:text-aog-primary md:mb-6 md:text-2xl">
                       {service.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="mb-6 flex-1 text-sm font-light leading-relaxed text-black/50 transition-colors duration-300 group-hover:text-black/70 md:mb-8">
+                    <p className="mb-6 flex-1 text-sm font-light leading-relaxed text-black/60 md:mb-8">
                       {service.description}
                     </p>
 
-                    {/* CTA with animated arrow */}
-                    <div className="inline-flex items-center gap-2 text-[10px] font-light uppercase tracking-[0.2em] text-aog-primary transition-all duration-300 group-hover:gap-3 md:text-xs">
+                    {/* CTA - subtle */}
+                    <div className="inline-flex items-center gap-2 text-[10px] font-light uppercase tracking-[0.2em] text-aog-primary/80 transition-all duration-300 group-hover:gap-3 group-hover:text-aog-primary md:text-xs">
                       <span>Explorar</span>
-                      <motion.div
-                        animate={{
-                          x: [0, 4, 0],
-                        }}
-                        transition={{
-                          duration: 1.5,
-                          repeat: Infinity,
-                          ease: 'easeInOut',
-                        }}
-                      >
-                        <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
-                      </motion.div>
+                      <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
                     </div>
                   </div>
 
-                  {/* Bottom gradient bar */}
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-aog-primary via-aog-primary/50 to-transparent"
-                    initial={{ width: '0%' }}
-                    whileInView={{ width: '100%' }}
-                    transition={{ duration: 0.8, delay: idx * 0.1 + 0.5 }}
-                  />
+                  {/* Minimal bottom accent */}
+                  <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-aog-primary/20 to-transparent" />
                 </div>
               </Link>
             </motion.div>

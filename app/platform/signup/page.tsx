@@ -273,7 +273,7 @@ export default function SignupPage() {
         <div className="w-full max-w-6xl">
           <div className="mb-8 text-center lg:hidden">
             <h2 className="mb-2 text-2xl font-bold text-header-text">
-              Únete a <span className="bg-gradient-to-r from-header-accent to-cyan-600 bg-clip-text text-transparent">OTC Petroleum</span>
+              Únete a <span className="bg-gradient-to-r from-header-accent to-cyan-600 bg-clip-text text-transparent">AOG Services</span>
             </h2>
             <p className="text-sm text-header-text-secondary">
               Accede a más de 50 cursos certificados
@@ -291,7 +291,7 @@ export default function SignupPage() {
                         <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-header-accent to-cyan-600">
                           <GraduationCap size={20} className="text-white" />
                         </div>
-                        <span className="text-xl font-bold text-header-text">OTC Petroleum</span>
+                        <span className="text-xl font-bold text-header-text">AOG Services</span>
                       </div>
                     </Link>
                     <h1 className="mb-2 text-2xl font-bold tracking-tight text-header-text md:text-3xl">

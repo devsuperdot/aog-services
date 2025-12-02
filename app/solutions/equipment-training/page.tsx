@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const metadata = {
-  title: 'Operación de Equipos | OTC Petroleum',
+  title: 'Operación de Equipos | AOG Services',
   description: 'Capacitación certificada para operadores de equipos pesados',
 }
 

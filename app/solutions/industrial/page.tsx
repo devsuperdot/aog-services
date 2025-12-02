@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const metadata = {
-  title: 'Sector Industrial | OTC Petroleum',
+  title: 'Sector Industrial | AOG Services',
   description: 'Inspecciones y certificaciones para el sector industrial',
 }
 

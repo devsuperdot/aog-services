@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Zap, Building2, Workflow, Shield, GraduationCap, Headphones } from 'lucide-react'
 
 export const metadata = {
-  title: 'Soluciones | OTC Petroleum',
+  title: 'Soluciones | AOG Services',
   description: 'Soluciones especializadas por industria y capacitación',
 }
 

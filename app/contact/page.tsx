@@ -2,10 +2,9 @@
 
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Mail, Phone, MapPin, Clock, Send, AlertCircle, CheckCircle2, User, Building2, MessageSquare, Shield, Copy, Check, ExternalLink } from 'lucide-react'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
-import ReCaptchaProvider from 'components/providers/ReCaptchaProvider'
+import { Mail, Phone, MapPin, Clock, Send, AlertCircle, CheckCircle2, User, Building2, MessageSquare, Copy, Check, ExternalLink } from 'lucide-react'
 import { AOG_SERVICES } from '@/constants/aog'
+import { CONTACT_INFO, EMERGENCY_CONTACT } from '@/constants/contact'
 
 // Minimalist grid
 const MinimalGridDark = () => (
@@ -79,8 +78,6 @@ const validatePhone = (phone: string): boolean => {
 }
 
 function ContactPageContent() {
-  const { executeRecaptcha } = useGoogleReCaptcha()
-
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -103,7 +100,7 @@ function ContactPageContent() {
   // Copy email to clipboard
   const copyEmail = async () => {
     try {
-      await navigator.clipboard.writeText('contacto@aogservices.com')
+      await navigator.clipboard.writeText(CONTACT_INFO.email.general)
       setEmailCopied(true)
       setTimeout(() => setEmailCopied(false), 2000)
     } catch (err) {
@@ -181,16 +178,6 @@ function ContactPageContent() {
     setIsSubmitting(true)
 
     try {
-      // Execute reCAPTCHA
-      if (!executeRecaptcha) {
-        console.log('reCAPTCHA not available - submitting without verification')
-      } else {
-        const token = await executeRecaptcha('contact_form')
-        console.log('reCAPTCHA token generated:', token)
-        // In production, you would send this token to your backend for verification
-        // Example: await fetch('/api/contact', { method: 'POST', body: JSON.stringify({ ...formData, recaptchaToken: token }) })
-      }
-
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 2000))
 
@@ -409,7 +396,7 @@ function ContactPageContent() {
                             ? 'border-red-500/50 focus:border-red-500'
                             : 'border-white/20 focus:border-aog-primary'
                         }`}
-                        placeholder="+52 229 123 4567"
+                        placeholder={CONTACT_INFO.phone.primary}
                       />
                       {errors.phone && touched.has('phone') && (
                         <motion.div
@@ -552,11 +539,6 @@ function ContactPageContent() {
                       </span>
                     </button>
 
-                    {/* reCAPTCHA Badge */}
-                    <div className="mt-4 flex items-center gap-2 text-[10px] font-light text-white/30">
-                      <Shield className="h-3 w-3" />
-                      <span>Protegido por reCAPTCHA de Google</span>
-                    </div>
                   </div>
                 </form>
                 </div>
@@ -583,11 +565,31 @@ function ContactPageContent() {
 
                 {/* Contact Cards */}
                 <div className="space-y-4">
-                  {/* WhatsApp */}
+                  {/* Phone Principal */}
                   <a
-                    href="https://wa.me/522291234567?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20AOG"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={`tel:${CONTACT_INFO.phone.primary.replace(/[\s-]/g, '')}`}
+                    className="group relative block overflow-hidden border border-white/10 bg-gradient-to-br from-neutral-900/80 to-black/60 p-6 shadow-lg transition-all hover:border-aog-primary hover:shadow-xl hover:shadow-aog-primary/10"
+                  >
+                    <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-aog-primary/5 blur-2xl transition-all group-hover:bg-aog-primary/10" />
+                    <div className="mb-2 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Phone className="h-4 w-4 text-aog-primary" />
+                        <div className="text-[10px] font-light uppercase tracking-[0.2em] text-white/60">
+                          Teléfono Principal
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-lg font-light text-white transition-colors group-hover:text-aog-primary">
+                      {CONTACT_INFO.phone.primary}
+                    </div>
+                    <div className="mt-1 text-xs font-light text-white/40">
+                      {CONTACT_INFO.hours.weekday}
+                    </div>
+                  </a>
+
+                  {/* Phone Technical */}
+                  <a
+                    href={`tel:${CONTACT_INFO.phone.technical.replace(/[\s-]/g, '')}`}
                     className="group relative block overflow-hidden border border-white/10 bg-gradient-to-br from-neutral-900/80 to-black/60 p-6 shadow-lg transition-all hover:border-green-500 hover:shadow-xl hover:shadow-green-500/10"
                   >
                     <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-green-500/5 blur-2xl transition-all group-hover:bg-green-500/10" />
@@ -595,16 +597,15 @@ function ContactPageContent() {
                       <div className="flex items-center gap-2">
                         <Phone className="h-4 w-4 text-green-500" />
                         <div className="text-[10px] font-light uppercase tracking-[0.2em] text-white/60">
-                          WhatsApp
+                          Soporte Técnico
                         </div>
                       </div>
-                      <ExternalLink className="h-3.5 w-3.5 text-green-500/60 transition-all group-hover:text-green-500" />
                     </div>
                     <div className="text-lg font-light text-white transition-colors group-hover:text-green-500">
-                      +52 (229) 123 4567
+                      {CONTACT_INFO.phone.technical}
                     </div>
                     <div className="mt-1 text-xs font-light text-white/40">
-                      Respuesta inmediata
+                      {CONTACT_INFO.hours.emergency}
                     </div>
                   </a>
 
@@ -635,13 +636,21 @@ function ContactPageContent() {
                         )}
                       </button>
                     </div>
-                    <a
-                      href="mailto:contacto@aogservices.com"
-                      className="block break-all text-lg font-light text-white transition-colors hover:text-aog-primary"
-                    >
-                      contacto@aogservices.com
-                    </a>
-                    <div className="mt-1 text-xs font-light text-white/40">
+                    <div className="space-y-2">
+                      <a
+                        href={`mailto:${CONTACT_INFO.email.general}?subject=Consulta desde la web`}
+                        className="block break-all text-lg font-light text-white transition-colors hover:text-aog-primary"
+                      >
+                        {CONTACT_INFO.email.general}
+                      </a>
+                      <a
+                        href={`mailto:${CONTACT_INFO.email.technical}?subject=Soporte técnico`}
+                        className="block break-all text-sm font-light text-white/70 transition-colors hover:text-aog-primary"
+                      >
+                        {CONTACT_INFO.email.technical}
+                      </a>
+                    </div>
+                    <div className="mt-2 text-xs font-light text-white/40">
                       Respuesta en menos de 24h
                     </div>
                   </div>
@@ -656,10 +665,12 @@ function ContactPageContent() {
                       </div>
                     </div>
                     <div className="text-lg font-light text-white">
-                      Coatzacoalcos, Veracruz
+                      {CONTACT_INFO.address.full}
                     </div>
-                    <div className="mt-1 text-xs font-light text-white/40">
-                      Zona Industrial del Golfo
+                    <div className="mt-2 space-y-1 text-xs font-light text-white/40">
+                      <div>{CONTACT_INFO.hours.weekday}</div>
+                      <div>{CONTACT_INFO.hours.saturday}</div>
+                      <div>{CONTACT_INFO.hours.sunday}</div>
                     </div>
                   </div>
 
@@ -668,17 +679,25 @@ function ContactPageContent() {
                     <div className="mb-2 flex items-center gap-2">
                       <Clock className="h-4 w-4 text-aog-primary" />
                       <div className="text-[10px] font-light uppercase tracking-[0.2em] text-aog-primary">
-                        Emergencias 24/7
+                        {EMERGENCY_CONTACT.available}
                       </div>
                     </div>
-                    <a
-                      href="tel:+522291234567"
-                      className="block text-lg font-light text-white transition-colors hover:text-aog-primary"
-                    >
-                      +52 (229) 123 4567
-                    </a>
-                    <div className="mt-1 text-xs font-light text-white/60">
-                      Disponible cualquier día, cualquier hora
+                    <div className="space-y-2">
+                      <a
+                        href={`tel:${EMERGENCY_CONTACT.phone.replace(/[\s-]/g, '')}`}
+                        className="block text-lg font-light text-white transition-colors hover:text-aog-primary"
+                      >
+                        {EMERGENCY_CONTACT.phone}
+                      </a>
+                      <a
+                        href={`tel:${CONTACT_INFO.phone.technical.replace(/[\s-]/g, '')}`}
+                        className="block text-sm font-light text-white/70 transition-colors hover:text-aog-primary"
+                      >
+                        {CONTACT_INFO.phone.technical}
+                      </a>
+                    </div>
+                    <div className="mt-2 text-xs font-light text-white/60">
+                      {EMERGENCY_CONTACT.description}
                     </div>
                   </div>
                 </div>
@@ -691,11 +710,6 @@ function ContactPageContent() {
   )
 }
 
-// Wrap the page with ReCaptchaProvider
 export default function ContactPage() {
-  return (
-    <ReCaptchaProvider>
-      <ContactPageContent />
-    </ReCaptchaProvider>
-  )
+  return <ContactPageContent />
 }
