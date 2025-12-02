@@ -210,7 +210,7 @@ const HeroSection = () => {
 
                   {/* Image with auto fallback to placeholder */}
                   <ImageWithPlaceholder
-                    src="/images/aog/platform-hero.jpg"
+                    src="/images/aog/banner-1-1.jpeg"
                     alt="Plataforma petrolera offshore"
                     priority
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -445,7 +445,7 @@ const ValuesSection = () => {
                 <div className="relative h-full w-full">
                   {/* Image with auto fallback to placeholder */}
                   <ImageWithPlaceholder
-                    src="/images/aog/workers-equipment.jpg"
+                    src="/images/aog/section-1-1.png"
                     alt="Trabajadores en plataforma petrolera"
                     sizes="(max-width: 768px) 100vw, 40vw"
                     className="grayscale"

@@ -2,30 +2,33 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import Image from 'next/image'
 import Link from 'next/link'
 import {
   Wrench,
   CheckCircle2,
   Zap,
   DollarSign,
-  Leaf,
-  Settings,
-  Award,
-  TrendingUp,
   Shield,
+  TrendingUp,
+  Award,
+  Clock,
   ArrowRight,
 } from 'lucide-react'
 import { AOG_SERVICES } from '@/constants/aog'
 import { TypeWriter, CodeReveal } from '@/components/animations/TypeWriter'
 import { TechButton, TechButtonDiagonal } from '@/components/ui/TechButton'
+import ImageWithPlaceholder from '@/components/aog/ImageWithPlaceholder'
 import {
   MinimalGridLinesDark as MinimalGridDark,
   MinimalGridLinesLight as MinimalGridLight,
 } from '@/components/aog/GridBackgrounds'
 
 // Get service data
-const service = AOG_SERVICES.find((s) => s.id === 'mantenimiento')!
+const service = AOG_SERVICES.find((s) => s.id === 'mantenimiento-industrial') || {
+  title: 'Mantenimiento Industrial Integral',
+  description:
+    'Maximizamos la eficiencia, seguridad y vida útil de equipos e instalaciones industriales',
+}
 
 // Animated Tech Background
 const TechBackground = () => (
@@ -59,27 +62,36 @@ const TechBackground = () => (
 
     {/* Floating particles */}
     <div className="pointer-events-none absolute inset-0">
-      {[...Array(25)].map((_, i) => (
-        <motion.div
-          key={`particle-${i}`}
-          className="absolute h-1 w-1 rounded-full bg-aog-primary"
-          initial={{
-            x: `${Math.random() * 100}%`,
-            y: `${Math.random() * 100}%`,
-            opacity: 0,
-          }}
-          animate={{
-            y: [null, `${Math.random() * 100}%`],
-            opacity: [0, 0.5, 0],
-          }}
-          transition={{
-            duration: Math.random() * 4 + 3,
-            repeat: Infinity,
-            delay: Math.random() * 3,
-            ease: 'linear',
-          }}
-        />
-      ))}
+      {[...Array(25)].map((_, i) => {
+        const seed = (i + 1) * 5.7
+        const xPos = ((seed * 17) % 100)
+        const yPosStart = ((seed * 11) % 100)
+        const yPosEnd = ((seed * 23) % 100)
+        const duration = 3 + ((seed * 7) % 4)
+        const delay = (seed * 13) % 3
+
+        return (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute h-1 w-1 rounded-full bg-aog-primary"
+            initial={{
+              x: `${xPos}%`,
+              y: `${yPosStart}%`,
+              opacity: 0,
+            }}
+            animate={{
+              y: `${yPosEnd}%`,
+              opacity: [0, 0.5, 0],
+            }}
+            transition={{
+              duration: duration,
+              repeat: Infinity,
+              delay: delay,
+              ease: 'linear',
+            }}
+          />
+        )
+      })}
     </div>
   </>
 )
@@ -110,10 +122,10 @@ const HeroSection = () => {
                 </Link>
 
                 <h1 className="mb-8 overflow-hidden text-[clamp(2rem,8vw,7rem)] font-extralight leading-[0.95] tracking-tight text-white">
-                  <TypeWriter text="Mantenimiento" delay={0.5} speed={0.10} />
+                  <TypeWriter text="Mantenimiento" delay={0.5} speed={0.12} />
                   <br />
                   <span className="text-aog-primary">
-                    <TypeWriter text="Industrial" delay={1.3} speed={0.10} />
+                    <TypeWriter text="Industrial" delay={1.3} speed={0.12} />
                   </span>
                 </h1>
 
@@ -124,8 +136,9 @@ const HeroSection = () => {
                 </p>
 
                 <p className="mb-12 max-w-2xl text-base font-light leading-relaxed text-white/50">
-                  Maximizamos la disponibilidad y rendimiento de tus equipos e instalaciones con servicios
-                  de mantenimiento preventivo y correctivo de clase mundial.
+                  Ofrecemos soluciones integrales que abarcan desde el mantenimiento preventivo y
+                  correctivo hasta la modernización y optimización de sistemas, garantizando un
+                  rendimiento óptimo y la reducción de tiempos de inactividad.
                 </p>
 
                 <div className="flex flex-col gap-4 sm:flex-row">
@@ -147,12 +160,19 @@ const HeroSection = () => {
               >
                 {/* Image container with tech frame */}
                 <div className="relative h-full border-2 border-aog-primary/30 bg-gradient-to-br from-neutral-900 to-black">
-                  {/* Platform Image */}
-                  <Image
-                    src="/images/aog/platform-hero.jpg"
+                  {/* [IMAGEN: Técnico realizando mantenimiento industrial] */}
+                  <ImageWithPlaceholder
+                    src="/images/aog/mant-1.jpeg"
                     alt="Mantenimiento Industrial"
-                    fill
-                    className="object-cover object-center opacity-70"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="grayscale"
+                    placeholderIcon={
+                      <div className="mx-auto mb-4 h-32 w-32 rounded-full border-2 border-aog-primary/30 bg-gradient-to-br from-aog-primary/10 to-transparent p-8">
+                        <Wrench className="h-full w-full text-aog-primary" strokeWidth={1} />
+                      </div>
+                    }
+                    placeholderText="Imagen: Mantenimiento Industrial"
+                    placeholderSubtext="Dimensión recomendada: 1200x1600px"
                   />
 
                   {/* Corner accents */}
@@ -201,12 +221,19 @@ const OverviewSection = () => {
             className="lg:col-span-5"
           >
             <div className="relative aspect-[4/5] overflow-hidden border-2 border-black/10 bg-gradient-to-br from-gray-100 to-gray-50">
-              {/* Workers and Equipment Image */}
-              <Image
-                src="/images/aog/workers-equipment.jpg"
-                alt="Mantenimiento en Operación"
-                fill
-                className="object-cover object-center"
+              {/* [IMAGEN: Equipo de mantenimiento trabajando] */}
+              <ImageWithPlaceholder
+                src="/images/aog/mant-3.jpeg"
+                alt="Equipo de Mantenimiento"
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="grayscale"
+                placeholderIcon={
+                  <div className="mx-auto mb-4 h-24 w-24 rounded-full border-2 border-aog-primary/30 bg-gradient-to-br from-aog-primary/10 to-transparent p-6">
+                    <Wrench className="h-full w-full text-aog-primary" strokeWidth={1} />
+                  </div>
+                }
+                placeholderText="Imagen: Equipo de Mantenimiento"
+                placeholderSubtext="Dimensión recomendada: 800x1000px"
               />
 
               {/* Decorative corners */}
@@ -229,33 +256,32 @@ const OverviewSection = () => {
               <h2 className="mb-8 overflow-hidden text-[clamp(2rem,5vw,4rem)] font-light leading-[1.1] tracking-tight text-black">
                 {isInView && (
                   <>
-                    <CodeReveal text="Mantenimiento" delay={0.2} />
+                    <CodeReveal text="Soluciones" delay={0.2} />
                     <br />
-                    <CodeReveal text="Integral" delay={0.5} />
+                    <CodeReveal text="Integrales" delay={0.5} />
                   </>
                 )}
               </h2>
 
               <p className="mb-8 font-light leading-relaxed text-black/70">
-                Nuestros servicios de mantenimiento industrial están diseñados para garantizar la máxima
-                disponibilidad y confiabilidad de tus equipos e instalaciones, minimizando tiempos de
-                inactividad y optimizando costos operacionales.
+                La línea de mantenimiento industrial de AOG está diseñada para maximizar la
+                eficiencia, seguridad y vida útil de los equipos e instalaciones industriales.
               </p>
 
               <p className="mb-8 font-light leading-relaxed text-black/70">
-                Contamos con un equipo de técnicos altamente capacitados y certificados, equipados con
-                herramientas de última generación para realizar servicios de mantenimiento preventivo,
-                correctivo y predictivo de clase mundial.
+                Ofrecemos soluciones integrales que abarcan desde el mantenimiento preventivo y
+                correctivo hasta la modernización y optimización de sistemas, garantizando un
+                rendimiento óptimo y la reducción de tiempos de inactividad.
               </p>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="border-l-4 border-aog-primary bg-gradient-to-r from-aog-primary/5 to-transparent p-6">
-                  <div className="mb-2 text-3xl font-light text-aog-primary">99.5%</div>
-                  <div className="text-sm font-light text-black/60">Disponibilidad de Equipos</div>
+                  <div className="mb-2 text-3xl font-light text-aog-primary">24/7</div>
+                  <div className="text-sm font-light text-black/60">Disponibilidad</div>
                 </div>
                 <div className="border-l-4 border-black/20 bg-gradient-to-r from-gray-50 to-transparent p-6">
-                  <div className="mb-2 text-3xl font-light text-black">24/7</div>
-                  <div className="text-sm font-light text-black/60">Soporte Disponible</div>
+                  <div className="mb-2 text-3xl font-light text-black">+50%</div>
+                  <div className="text-sm font-light text-black/60">Vida Útil Prolongada</div>
                 </div>
               </div>
             </motion.div>
@@ -267,12 +293,49 @@ const OverviewSection = () => {
 }
 
 // Services Section - BLACK
-const ServicesSection = () => {
+const ServicesOfferedSection = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
+  const services = [
+    {
+      title: 'Mantenimiento Preventivo de equipos',
+      description:
+        'Programas de inspección y mantenimiento planificado para prevenir fallas y maximizar la vida útil de los equipos.',
+      icon: CheckCircle2,
+    },
+    {
+      title: 'Mantenimiento Correctivo de equipos',
+      description:
+        'Reparación rápida y efectiva de equipos con fallas, minimizando el tiempo de inactividad operacional.',
+      icon: Wrench,
+    },
+    {
+      title: 'Reparación y Reemplazo de Componentes',
+      description:
+        'Servicio especializado en reparación y sustitución de componentes críticos con repuestos de alta calidad.',
+      icon: TrendingUp,
+    },
+    {
+      title: 'Optimización y Modernización',
+      description:
+        'Actualización de sistemas y equipos para mejorar eficiencia, seguridad y productividad operacional.',
+      icon: Zap,
+    },
+    {
+      title: 'Mantenimiento General de Infraestructura',
+      description:
+        'Mantenimiento integral de instalaciones industriales para garantizar operación segura y continua.',
+      icon: Shield,
+    },
+  ]
+
   return (
-    <section id="services" ref={ref} className="relative bg-black py-20 md:py-32 lg:py-40">
+    <section
+      id="services"
+      ref={ref}
+      className="relative bg-black py-20 md:py-32 lg:py-40"
+    >
       <MinimalGridDark />
 
       <div className="relative z-10 mx-auto max-w-[1600px] px-4 sm:px-6 md:px-12 lg:px-16">
@@ -283,52 +346,41 @@ const ServicesSection = () => {
           className="mb-16 text-center md:mb-20"
         >
           <div className="mb-4 text-[10px] font-light uppercase tracking-[0.3em] text-aog-primary">
-            Línea de Servicios
+            Equipos y Servicios
           </div>
           <h2 className="mb-6 text-[clamp(2rem,5vw,4rem)] font-light text-white">
-            Servicios Especializados
+            Portafolio de Servicios
           </h2>
           <p className="mx-auto max-w-3xl font-light leading-relaxed text-white/60">
-            Cobertura completa de mantenimiento industrial para maximizar la vida útil y rendimiento de tus activos
+            Servicios especializados realizados por técnicos altamente capacitados con materiales
+            de la más alta calidad
           </p>
         </motion.div>
 
         {/* Services Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {service.features.map((feature, idx) => (
+          {services.map((item, idx) => (
             <motion.div
-              key={feature}
+              key={item.title}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="group relative overflow-hidden border border-white/10 bg-black transition-all hover:border-aog-primary hover:bg-neutral-950"
+              className="group relative overflow-hidden border border-white/10 bg-black p-8 transition-all hover:border-aog-primary hover:bg-neutral-950"
             >
-              {/* Image placeholder */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-neutral-900 to-black">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Wrench className="h-16 w-16 text-aog-primary/30" strokeWidth={1} />
-                </div>
-
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 transition-opacity group-hover:opacity-80" />
-
-                {/* Badge */}
-                <div className="absolute right-4 top-4 border border-aog-primary/30 bg-black/80 px-3 py-1 text-[10px] uppercase tracking-wider text-aog-primary">
-                  Servicio {idx + 1}
-                </div>
+              {/* Icon */}
+              <div className="mb-6 flex h-14 w-14 items-center justify-center border-2 border-aog-primary/30 transition-all group-hover:border-aog-primary group-hover:bg-aog-primary/5">
+                <item.icon className="h-7 w-7 text-aog-primary" strokeWidth={1.5} />
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="mb-3 text-xl font-light text-white">{feature}</h3>
-                <p className="mb-4 text-sm font-light leading-relaxed text-white/50">
-                  Servicio especializado realizado por técnicos certificados con experiencia en la industria petrolera.
-                </p>
+              <h3 className="mb-4 text-xl font-light text-white">{item.title}</h3>
+              <p className="text-sm font-light leading-relaxed text-white/50">
+                {item.description}
+              </p>
 
-                <div className="flex items-center gap-2 text-xs font-light uppercase tracking-wider text-aog-primary">
-                  <span>Ver más detalles</span>
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                </div>
+              {/* Number badge */}
+              <div className="absolute right-6 top-6 text-[10px] font-light tracking-[0.3em] text-white/20">
+                {String(idx + 1).padStart(2, '0')}
               </div>
             </motion.div>
           ))}
@@ -343,12 +395,32 @@ const BenefitsSection = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
-  const benefitIcons = [
-    { icon: Zap, label: service.benefits[0] },
-    { icon: Shield, label: service.benefits[1] },
-    { icon: DollarSign, label: service.benefits[2] },
-    { icon: TrendingUp, label: service.benefits[3] },
-    { icon: Award, label: service.benefits[4] },
+  const benefits = [
+    {
+      icon: Zap,
+      label: 'Eficiencia Operativa',
+      description: 'Maximiza la disponibilidad y rendimiento de los equipos',
+    },
+    {
+      icon: Shield,
+      label: 'Seguridad',
+      description: 'Asegura un entorno de trabajo seguro y conforme a las normativas',
+    },
+    {
+      icon: DollarSign,
+      label: 'Reducción de Costos',
+      description: 'Minimiza los gastos operacionales y evita paradas no planificadas',
+    },
+    {
+      icon: Clock,
+      label: 'Vida Útil Prolongada',
+      description: 'Aumenta la durabilidad de los equipos y las instalaciones',
+    },
+    {
+      icon: Award,
+      label: 'Calidad y Confiabilidad',
+      description: 'Servicios realizados por técnicos altamente capacitados',
+    },
   ]
 
   return (
@@ -366,18 +438,19 @@ const BenefitsSection = () => {
             Ventajas Clave
           </div>
           <h2 className="mb-6 overflow-hidden text-[clamp(2rem,5vw,4rem)] font-light leading-[1.1] tracking-tight text-black">
-            {isInView && <CodeReveal text="Beneficios del Servicio" delay={0.2} />}
+            {isInView && <CodeReveal text="Beneficios" delay={0.2} />}
           </h2>
           <p className="max-w-3xl font-light leading-relaxed text-black/60">
-            Implementar nuestro programa de mantenimiento genera valor inmediato en múltiples aspectos de la operación
+            Implementar nuestros servicios de mantenimiento genera valor inmediato en múltiples
+            aspectos de la operación
           </p>
         </motion.div>
 
         {/* Benefits Grid */}
-        <div className="grid gap-px md:grid-cols-2 lg:grid-cols-5">
-          {benefitIcons.map((benefit, idx) => (
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+          {benefits.map((benefit, idx) => (
             <motion.div
-              key={idx}
+              key={benefit.label}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
@@ -386,7 +459,10 @@ const BenefitsSection = () => {
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center border-2 border-aog-primary/30 bg-white transition-all group-hover:border-aog-primary group-hover:bg-aog-primary/5">
                 <benefit.icon className="h-8 w-8 text-aog-primary" strokeWidth={1.5} />
               </div>
-              <h3 className="text-sm font-light leading-relaxed text-black">{benefit.label}</h3>
+              <h3 className="mb-2 text-base font-light text-black">{benefit.label}</h3>
+              <p className="text-xs font-light leading-relaxed text-black/50">
+                {benefit.description}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -399,12 +475,19 @@ const BenefitsSection = () => {
           className="mt-16"
         >
           <div className="relative aspect-[21/9] overflow-hidden border-2 border-black/10 bg-gradient-to-br from-gray-100 to-gray-50">
-            {/* Panoramic Platform Image */}
-            <Image
-              src="/images/aog/platform-hero.jpg"
-              alt="Mantenimiento Completo en Operación"
-              fill
-              className="object-cover object-center"
+            {/* [IMAGEN: Panorámica de instalaciones industriales] */}
+            <ImageWithPlaceholder
+              src="/images/aog/mant-2.jpeg"
+              alt="Instalaciones Industriales"
+              sizes="100vw"
+              className="grayscale"
+              placeholderIcon={
+                <div className="mx-auto mb-4 h-32 w-32 rounded-full border-2 border-aog-primary/30 bg-gradient-to-br from-aog-primary/10 to-transparent p-8">
+                  <Wrench className="h-full w-full text-aog-primary" strokeWidth={1} />
+                </div>
+              }
+              placeholderText="Imagen Panorámica: Instalaciones Industriales"
+              placeholderSubtext="Dimensión recomendada: 2100x900px"
             />
 
             {/* Decorative frame */}
@@ -433,18 +516,18 @@ const CTASection = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="mx-auto mb-8 inline-flex h-16 w-16 items-center justify-center border-2 border-aog-primary bg-black">
-            <Settings className="h-8 w-8 text-aog-primary" strokeWidth={1.5} />
+            <Shield className="h-8 w-8 text-aog-primary" strokeWidth={1.5} />
           </div>
 
           <h2 className="mb-6 text-[clamp(2rem,5vw,4rem)] font-light leading-[1.1] text-white">
-            Maximiza la disponibilidad
+            Maximiza la vida útil
             <br />
-            de tus activos
+            de tus equipos
           </h2>
 
           <p className="mx-auto mb-12 max-w-2xl font-light leading-relaxed text-white/60">
-            Solicita una evaluación técnica para diseñar un programa de mantenimiento personalizado
-            que se adapte a las necesidades específicas de tu operación.
+            Solicita una evaluación técnica o agenda una visita para conocer cómo nuestros
+            servicios de mantenimiento pueden optimizar tus operaciones.
           </p>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
@@ -468,7 +551,7 @@ export default function MantenimientoIndustrialPage() {
     <main className="bg-white">
       <HeroSection />
       <OverviewSection />
-      <ServicesSection />
+      <ServicesOfferedSection />
       <BenefitsSection />
       <CTASection />
     </main>
