@@ -2,8 +2,9 @@
 
 import { useState, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
-import { Calendar, Clock, User, ArrowRight, Search, BookOpen } from 'lucide-react'
+import { Calendar, Clock, ArrowRight, Search, BookOpen } from 'lucide-react'
 import { BLOG_POSTS, BLOG_CATEGORIES, BLOG_ICONS, getPostsByCategory } from '@/constants/blog'
 import { MinimalGridLight, MinimalGridDark } from '@/components/aog/GridBackgrounds'
 import { CodeReveal } from '@/components/animations/TypeWriter'
@@ -20,26 +21,36 @@ const HeroSection = () => {
 
       {/* Animated background */}
       <div className="pointer-events-none absolute inset-0">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute h-1 w-1 rounded-full bg-aog-primary"
-            initial={{
-              x: `${Math.random() * 100}%`,
-              y: `${Math.random() * 100}%`,
-              opacity: 0,
-            }}
-            animate={{
-              y: [null, `${Math.random() * 100}%`],
-              opacity: [0, 0.5, 0],
-            }}
-            transition={{
-              duration: Math.random() * 4 + 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
+        {[...Array(20)].map((_, i) => {
+          // Use deterministic values based on index to avoid hydration mismatch
+          const seed = (i + 1) * 5.3
+          const xPos = ((seed * 17) % 100)
+          const yPosStart = ((seed * 11) % 100)
+          const yPosEnd = ((seed * 23) % 100)
+          const duration = 2 + ((seed * 7) % 4)
+          const delay = (seed * 13) % 2
+
+          return (
+            <motion.div
+              key={i}
+              className="absolute h-1 w-1 rounded-full bg-aog-primary"
+              initial={{
+                x: `${xPos}%`,
+                y: `${yPosStart}%`,
+                opacity: 0,
+              }}
+              animate={{
+                y: `${yPosEnd}%`,
+                opacity: [0, 0.5, 0],
+              }}
+              transition={{
+                duration: duration,
+                repeat: Infinity,
+                delay: delay,
+              }}
+            />
+          )
+        })}
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1600px] px-4 py-20 sm:px-6 md:px-12 lg:px-16">
@@ -157,19 +168,22 @@ const BlogGridSection = () => {
                   {/* Card */}
                   <div className="relative h-full overflow-hidden border border-black/5 bg-white transition-all duration-500 hover:border-aog-primary/30 hover:shadow-2xl hover:shadow-aog-primary/10">
                     {/* Category Badge */}
-                    <div className="absolute right-4 top-4 z-10 flex items-center gap-2 border border-aog-primary/30 bg-aog-primary/10 px-3 py-1 backdrop-blur-sm">
-                      <Icon className="h-3 w-3 text-aog-primary" />
-                      <span className="text-xs font-light uppercase tracking-wider text-aog-primary">
+                    <div className="absolute right-4 top-4 z-10 flex items-center gap-2 border border-aog-primary bg-black/80 px-3 py-1.5 shadow-lg backdrop-blur-md">
+                      <Icon className="h-3.5 w-3.5 text-aog-primary" />
+                      <span className="text-xs font-medium uppercase tracking-wider text-white">
                         {post.category}
                       </span>
                     </div>
 
-                    {/* Image Placeholder */}
+                    {/* Image */}
                     <div className="relative h-48 overflow-hidden bg-gradient-to-br from-neutral-900 to-black">
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <Icon className="h-16 w-16 text-aog-primary opacity-30" strokeWidth={1} />
-                      </div>
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     </div>
 
                     {/* Content */}
@@ -199,17 +213,6 @@ const BlogGridSection = () => {
                       <p className="mb-4 line-clamp-3 text-sm font-light leading-relaxed text-black/60">
                         {post.excerpt}
                       </p>
-
-                      {/* Author */}
-                      <div className="flex items-center gap-2 border-t border-black/5 pt-4">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-full border border-aog-primary/30 bg-aog-primary/5">
-                          <User className="h-4 w-4 text-aog-primary" />
-                        </div>
-                        <div className="text-xs font-light">
-                          <div className="text-black">{post.author.name}</div>
-                          <div className="text-black/40">{post.author.role}</div>
-                        </div>
-                      </div>
 
                       {/* Read More */}
                       <div className="mt-4 flex items-center gap-2 text-sm font-light uppercase tracking-wider text-aog-primary">

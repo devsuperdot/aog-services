@@ -79,27 +79,37 @@ const TechBackground = () => (
 
     {/* Floating particles */}
     <div className="pointer-events-none absolute inset-0">
-      {[...Array(30)].map((_, i) => (
-        <motion.div
-          key={`particle-${i}`}
-          className="absolute h-2 w-2 rounded-full bg-aog-primary shadow-lg shadow-aog-primary/50"
-          initial={{
-            x: `${Math.random() * 100}%`,
-            y: `${Math.random() * 100}%`,
-            opacity: 0,
-          }}
-          animate={{
-            y: [null, `${Math.random() * 100}%`],
-            opacity: [0, 0.5, 0],
-          }}
-          transition={{
-            duration: Math.random() * 4 + 3,
-            repeat: Infinity,
-            delay: Math.random() * 3,
-            ease: 'linear',
-          }}
-        />
-      ))}
+      {[...Array(30)].map((_, i) => {
+        // Use deterministic values based on index to avoid hydration mismatch
+        const seed = (i + 1) * 5.9
+        const xPos = ((seed * 17) % 100)
+        const yPosStart = ((seed * 11) % 100)
+        const yPosEnd = ((seed * 23) % 100)
+        const duration = 3 + ((seed * 7) % 4)
+        const delay = (seed * 13) % 3
+
+        return (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute h-2 w-2 rounded-full bg-aog-primary shadow-lg shadow-aog-primary/50"
+            initial={{
+              x: `${xPos}%`,
+              y: `${yPosStart}%`,
+              opacity: 0,
+            }}
+            animate={{
+              y: `${yPosEnd}%`,
+              opacity: [0, 0.5, 0],
+            }}
+            transition={{
+              duration: duration,
+              repeat: Infinity,
+              delay: delay,
+              ease: 'linear',
+            }}
+          />
+        )
+      })}
     </div>
   </>
 )

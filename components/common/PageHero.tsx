@@ -108,7 +108,7 @@ export default function PageHero({
       <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-gradient-to-br from-header-accent/5 to-transparent blur-3xl" />
 
       <div
-        className={`relative mx-auto w-full max-w-7xl px-6 md:px-8 ${sizeClasses[size]}`}
+        className={`relative mx-auto w-full max-w-[1600px] px-4 sm:px-6 md:px-12 lg:px-16 ${sizeClasses[size]}`}
       >
         <div className={variant === 'centered' ? 'mx-auto max-w-3xl text-center' : 'max-w-4xl'}>
           {/* Badge */}

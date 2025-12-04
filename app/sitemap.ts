@@ -19,37 +19,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/services/ndt-testing`,
+      url: `${baseUrl}/services/control-solidos`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/services/visual-inspection`,
+      url: `${baseUrl}/services/equipos-perifericos`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/services/radiography`,
+      url: `${baseUrl}/services/herramientas-molienda`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/services/lifting-equipment`,
+      url: `${baseUrl}/services/mantenimiento-industrial`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/services/heavy-machinery`,
+      url: `${baseUrl}/services/servicios-tecnicos`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/services/personnel-certification`,
+      url: `${baseUrl}/services/energia-iluminacion`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -96,6 +96,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
+    },
+    // Blog
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     // Other pages
     {
