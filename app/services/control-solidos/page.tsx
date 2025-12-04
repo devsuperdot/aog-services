@@ -266,6 +266,19 @@ const OverviewSection = () => {
   )
 }
 
+// Equipment images mapping
+const equipmentImages: { [key: number]: string } = {
+  0: '/images/aog/Zaranda-1.jpeg', // Shale Shakers (Zarandas Vibratorias)
+  1: '/images/aog/mud-cleaner.jpeg', // Mud Cleaner (Limpia Lodos)
+  2: '/images/aog/control-de-solidos-3.jpeg', // Centrifugas Decantadoras
+  3: '/images/aog/distribuidor-de-flujos.jpeg', // Distribuidor de Flujo
+  4: '/images/aog/bomba-centrifuga-1.jpeg', // Bombas Centrifugas
+  5: '/images/aog/servicio-tecnico.jpeg', // Servicio Técnico y soporte 24/7
+  6: '/images/aog/puesta-en-marcha-1.jpeg', // Instalación y puesta en marcha
+  7: '/images/aog/survey-mecanico.jpeg', // Survey Mecánico
+  8: '/images/aog/medicion-fuerza.jpeg', // Medición de fuerza gravitacional
+}
+
 // Equipment Section - BLACK
 const EquipmentSection = () => {
   const ref = useRef(null)
@@ -304,11 +317,24 @@ const EquipmentSection = () => {
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               className="group relative overflow-hidden border border-white/10 bg-black transition-all hover:border-aog-primary hover:bg-neutral-950"
             >
-              {/* Image placeholder */}
+              {/* Image or placeholder */}
               <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-neutral-900 to-black">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Droplets className="h-16 w-16 text-aog-primary/30" strokeWidth={1} />
-                </div>
+                {equipmentImages[idx] ? (
+                  <>
+                    <Image
+                      src={equipmentImages[idx]}
+                      alt={feature}
+                      fill
+                      className="object-cover object-center opacity-80 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0"
+                    />
+                    {/* Orange tint overlay */}
+                    <div className="absolute inset-0 bg-aog-primary/20 mix-blend-overlay" />
+                  </>
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Droplets className="h-16 w-16 text-aog-primary/30" strokeWidth={1} />
+                  </div>
+                )}
 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 transition-opacity group-hover:opacity-80" />

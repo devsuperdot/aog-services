@@ -103,30 +103,6 @@ export const SERVICIOS_MEGAMENU: MegaMenuSection = {
         },
       ],
     },
-    {
-      title: 'Soluciones Empresariales',
-      items: [
-        {
-          title: 'Proyectos Llave en Mano',
-          description: 'Soluciones completas de inicio a fin',
-          href: '/solutions/turnkey',
-          icon: Building2,
-          badge: 'Nuevo',
-        },
-        {
-          title: 'Optimización Operativa',
-          description: 'Mejora continua de procesos',
-          href: '/solutions/optimization',
-          icon: TrendingUp,
-        },
-        {
-          title: 'Seguridad y Cumplimiento',
-          description: 'Certificaciones y normativas',
-          href: '/solutions/safety',
-          icon: Shield,
-        },
-      ],
-    },
   ],
   featured: {
     title: '¿Necesita una solución personalizada?',
@@ -229,95 +205,6 @@ export const NOSOTROS_MEGAMENU: MegaMenuSection = {
   },
 }
 
-/**
- * Soluciones Mega Menu
- * Industry-specific solutions and use cases
- */
-export const SOLUCIONES_MEGAMENU: MegaMenuSection = {
-  label: 'Soluciones',
-  columns: [
-    {
-      title: 'Por Industria',
-      items: [
-        {
-          title: 'Exploración y Perforación',
-          description: 'Equipos para descubrimiento de yacimientos',
-          href: '/solutions/exploration',
-        },
-        {
-          title: 'Producción',
-          description: 'Optimización de extracción',
-          href: '/solutions/production',
-        },
-        {
-          title: 'Refinación',
-          description: 'Procesamiento y transformación',
-          href: '/solutions/refining',
-        },
-        {
-          title: 'Transporte y Distribución',
-          description: 'Logística de hidrocarburos',
-          href: '/solutions/transport',
-        },
-      ],
-    },
-    {
-      title: 'Por Desafío',
-      items: [
-        {
-          title: 'Reducción de NPT',
-          description: 'Minimizar tiempo no productivo',
-          href: '/solutions/npt-reduction',
-        },
-        {
-          title: 'Control de Costos',
-          description: 'Optimización financiera',
-          href: '/solutions/cost-control',
-        },
-        {
-          title: 'Cumplimiento Normativo',
-          description: 'Regulaciones y estándares',
-          href: '/solutions/compliance',
-        },
-        {
-          title: 'Eficiencia Energética',
-          description: 'Ahorro y sostenibilidad',
-          href: '/solutions/energy-efficiency',
-        },
-      ],
-    },
-    {
-      title: 'Recursos',
-      items: [
-        {
-          title: 'Casos de Éxito',
-          description: 'Proyectos destacados',
-          href: '/case-studies',
-          icon: Award,
-        },
-        {
-          title: 'Documentación Técnica',
-          description: 'Manuales y especificaciones',
-          href: '/resources/documentation',
-          icon: FileText,
-        },
-        {
-          title: 'Capacitación',
-          description: 'Programas de formación',
-          href: '/resources/training',
-          icon: Users,
-        },
-      ],
-    },
-  ],
-  featured: {
-    title: 'Catálogo de Productos 2025',
-    description:
-      'Descubra nuestra línea completa de equipos y servicios para la industria petrolera.',
-    href: '/resources/catalog',
-    cta: 'Descargar catálogo',
-  },
-}
 
 /**
  * Mega Menu Configuration
@@ -326,7 +213,6 @@ export const SOLUCIONES_MEGAMENU: MegaMenuSection = {
 export const MEGA_MENU_CONFIG = {
   servicios: SERVICIOS_MEGAMENU,
   nosotros: NOSOTROS_MEGAMENU,
-  soluciones: SOLUCIONES_MEGAMENU,
 } as const
 
 export type MegaMenuKey = keyof typeof MEGA_MENU_CONFIG

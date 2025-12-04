@@ -12,7 +12,6 @@ import { MEGA_MENU_CONFIG, type MegaMenuKey } from '@/constants/megamenu'
 const navigation = [
   { name: 'Inicio', href: '/' },
   { name: 'Servicios', href: '/services', hasMegaMenu: true, megaMenuKey: 'servicios' as MegaMenuKey },
-  { name: 'Soluciones', href: '/solutions', hasMegaMenu: true, megaMenuKey: 'soluciones' as MegaMenuKey },
   { name: 'Blog', href: '/blog' },
   { name: 'Nosotros', href: '/about', hasMegaMenu: true, megaMenuKey: 'nosotros' as MegaMenuKey },
   { name: 'Careers', href: '/careers' },

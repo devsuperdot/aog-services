@@ -8,15 +8,11 @@ import {
   Award,
   FileCheck,
   Microscope,
-  GraduationCap,
   Wrench,
   HardHat,
-  Heart,
-  Building2,
   Gauge,
   Target,
   Leaf,
-  Users,
   TrendingUp,
   MapPin,
   type LucideIcon,
@@ -83,54 +79,6 @@ export const SERVICES_MENU: MegaMenuSection[] = [
   },
 ]
 
-export const SOLUTIONS_MENU: MegaMenuSection[] = [
-  {
-    category: 'Por Industria',
-    items: [
-      {
-        icon: Gauge,
-        title: 'Petróleo y Gas',
-        description: 'Soluciones especializadas para upstream y downstream',
-        href: '/solutions/oil-gas',
-      },
-      {
-        icon: Building2,
-        title: 'Construcción',
-        description: 'Seguridad y certificación para proyectos de construcción',
-        href: '/solutions/construction',
-      },
-      {
-        icon: HardHat,
-        title: 'Industrial',
-        description: 'Servicios para plantas industriales y manufactura',
-        href: '/solutions/industrial',
-      },
-    ],
-  },
-  {
-    category: 'Capacitación',
-    items: [
-      {
-        icon: GraduationCap,
-        title: 'Seguridad Industrial',
-        description: 'RigPass, trabajos en altura, espacios confinados',
-        href: '/solutions/safety-training',
-      },
-      {
-        icon: Wrench,
-        title: 'Operación de Equipos',
-        description: 'Capacitación certificada en maquinaria especializada',
-        href: '/solutions/equipment-training',
-      },
-      {
-        icon: Heart,
-        title: 'Primeros Auxilios',
-        description: 'Certificaciones en atención médica de emergencia',
-        href: '/solutions/first-aid',
-      },
-    ],
-  },
-]
 
 export const ABOUT_MENU: MegaMenuSection[] = [
   {
@@ -189,7 +137,6 @@ export interface NavLink {
 
 export const MAIN_NAV_LINKS: NavLink[] = [
   { label: 'Servicios', href: '/services', hasDropdown: true },
-  { label: 'Soluciones', href: '/solutions', hasDropdown: true },
   { label: 'Nosotros', href: '/about', hasDropdown: true },
   { label: 'Proyectos', href: '/projects' },
   { label: 'Carreras', href: '/careers' },
@@ -202,12 +149,6 @@ export const FOOTER_LINKS = {
     { label: 'Inspección Visual', href: '/services/visual-inspection' },
     { label: 'Certificación de Personal', href: '/services/personnel-certification' },
     { label: 'Radiografía Industrial', href: '/services/radiography' },
-  ],
-  solutions: [
-    { label: 'Petróleo y Gas', href: '/solutions/oil-gas' },
-    { label: 'Construcción', href: '/solutions/construction' },
-    { label: 'Industrial', href: '/solutions/industrial' },
-    { label: 'Capacitación', href: '/solutions/safety-training' },
   ],
   company: [
     { label: 'Nosotros', href: '/about' },

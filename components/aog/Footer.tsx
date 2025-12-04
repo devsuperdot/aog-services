@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Mail, MapPin, Linkedin, Facebook, Instagram, Twitter, Youtube, ChevronRight } from 'lucide-react'
+import { Phone, Mail, MapPin, Linkedin, Facebook, Instagram, Twitter, ChevronRight } from 'lucide-react'
 import { CONTACT_INFO } from '@/constants'
 
 const services = [
@@ -91,56 +91,34 @@ export default function AOGFooter() {
 
             {/* Social Links */}
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href={CONTACT_INFO.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex h-10 w-10 items-center justify-center overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm transition-all hover:border-aog-primary/50"
+              <div
+                className="group relative flex h-10 w-10 items-center justify-center overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm transition-all hover:border-aog-primary/50 cursor-pointer"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="relative z-10 h-4 w-4 text-white/60 transition-colors group-hover:text-aog-primary" />
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-aog-primary/10 to-transparent transition-transform duration-300 group-hover:translate-x-0" />
-              </a>
-              <a
-                href={CONTACT_INFO.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex h-10 w-10 items-center justify-center overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm transition-all hover:border-aog-primary/50"
+              </div>
+              <div
+                className="group relative flex h-10 w-10 items-center justify-center overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm transition-all hover:border-aog-primary/50 cursor-pointer"
                 aria-label="Facebook"
               >
                 <Facebook className="relative z-10 h-4 w-4 text-white/60 transition-colors group-hover:text-aog-primary" />
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-aog-primary/10 to-transparent transition-transform duration-300 group-hover:translate-x-0" />
-              </a>
-              <a
-                href="https://instagram.com/aogservices"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex h-10 w-10 items-center justify-center overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm transition-all hover:border-aog-primary/50"
+              </div>
+              <div
+                className="group relative flex h-10 w-10 items-center justify-center overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm transition-all hover:border-aog-primary/50 cursor-pointer"
                 aria-label="Instagram"
               >
                 <Instagram className="relative z-10 h-4 w-4 text-white/60 transition-colors group-hover:text-aog-primary" />
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-aog-primary/10 to-transparent transition-transform duration-300 group-hover:translate-x-0" />
-              </a>
-              <a
-                href="https://twitter.com/aogservices"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex h-10 w-10 items-center justify-center overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm transition-all hover:border-aog-primary/50"
+              </div>
+              <div
+                className="group relative flex h-10 w-10 items-center justify-center overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm transition-all hover:border-aog-primary/50 cursor-pointer"
                 aria-label="Twitter"
               >
                 <Twitter className="relative z-10 h-4 w-4 text-white/60 transition-colors group-hover:text-aog-primary" />
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-aog-primary/10 to-transparent transition-transform duration-300 group-hover:translate-x-0" />
-              </a>
-              <a
-                href="https://youtube.com/@aogservices"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex h-10 w-10 items-center justify-center overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm transition-all hover:border-aog-primary/50"
-                aria-label="YouTube"
-              >
-                <Youtube className="relative z-10 h-4 w-4 text-white/60 transition-colors group-hover:text-aog-primary" />
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-aog-primary/10 to-transparent transition-transform duration-300 group-hover:translate-x-0" />
-              </a>
+              </div>
             </div>
           </div>
 
