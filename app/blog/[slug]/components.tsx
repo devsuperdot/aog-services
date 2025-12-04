@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import { Calendar, Clock, User, ArrowLeft, Share2, BookmarkPlus, ArrowRight } from 'lucide-react'
 import { MinimalGridLight, MinimalGridDark } from '@/components/aog/GridBackgrounds'
@@ -16,6 +17,17 @@ export const ArticleHeroClient = ({ post }: { post: BlogPost }) => {
 
   return (
     <section ref={ref} className="relative min-h-[60vh] overflow-hidden bg-black pt-32">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src={post.image}
+          alt={post.title}
+          fill
+          className="object-cover opacity-30"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/60" />
+      </div>
       <MinimalGridDark />
 
       <div className="relative z-10 mx-auto max-w-[900px] px-4 py-20 sm:px-6">

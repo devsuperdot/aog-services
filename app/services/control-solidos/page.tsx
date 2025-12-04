@@ -59,27 +59,37 @@ const TechBackground = () => (
 
     {/* Floating particles */}
     <div className="pointer-events-none absolute inset-0">
-      {[...Array(25)].map((_, i) => (
-        <motion.div
-          key={`particle-${i}`}
-          className="absolute h-1 w-1 rounded-full bg-aog-primary"
-          initial={{
-            x: `${Math.random() * 100}%`,
-            y: `${Math.random() * 100}%`,
-            opacity: 0,
-          }}
-          animate={{
-            y: [null, `${Math.random() * 100}%`],
-            opacity: [0, 0.5, 0],
-          }}
-          transition={{
-            duration: Math.random() * 4 + 3,
-            repeat: Infinity,
-            delay: Math.random() * 3,
-            ease: 'linear',
-          }}
-        />
-      ))}
+      {[...Array(25)].map((_, i) => {
+        // Use deterministic values based on index to avoid hydration mismatch
+        const seed = (i + 1) * 6.1
+        const xPos = ((seed * 17) % 100)
+        const yPosStart = ((seed * 11) % 100)
+        const yPosEnd = ((seed * 23) % 100)
+        const duration = 3 + ((seed * 7) % 4)
+        const delay = (seed * 13) % 3
+
+        return (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute h-1 w-1 rounded-full bg-aog-primary"
+            initial={{
+              x: `${xPos}%`,
+              y: `${yPosStart}%`,
+              opacity: 0,
+            }}
+            animate={{
+              y: `${yPosEnd}%`,
+              opacity: [0, 0.5, 0],
+            }}
+            transition={{
+              duration: duration,
+              repeat: Infinity,
+              delay: delay,
+              ease: 'linear',
+            }}
+          />
+        )
+      })}
     </div>
   </>
 )
@@ -348,15 +358,10 @@ const EquipmentSection = () => {
               {/* Content */}
               <div className="p-6">
                 <h3 className="mb-3 text-xl font-light text-white">{feature}</h3>
-                <p className="mb-4 text-sm font-light leading-relaxed text-white/50">
+                <p className="text-sm font-light leading-relaxed text-white/50">
                   Tecnología avanzada para optimización de procesos de separación de sólidos en
                   fluidos de perforación.
                 </p>
-
-                <div className="flex items-center gap-2 text-xs font-light uppercase tracking-wider text-aog-primary">
-                  <span>Ver especificaciones</span>
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                </div>
               </div>
             </motion.div>
           ))}

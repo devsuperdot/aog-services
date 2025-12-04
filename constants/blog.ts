@@ -108,7 +108,7 @@ Invertir en un sistema de control de sólidos de calidad es fundamental para el 
     readTime: '8 min',
     category: 'Tecnología',
     iconName: 'Droplets',
-    image: '/images/aog/platform-hero.jpg',
+    image: '/images/aog/control-de-solidos-1.jpeg',
   },
   {
     id: '2',
@@ -180,95 +180,122 @@ La seguridad es responsabilidad de todos. Nuestro compromiso con cero incidentes
     readTime: '6 min',
     category: 'Seguridad',
     iconName: 'Shield',
-    image: '/images/aog/workers-equipment.jpg',
+    image: '/images/aog/tecnicos-1.jpeg',
   },
   {
     id: '3',
-    slug: 'innovacion-herramientas-pesca',
-    title: 'Innovaciones en Herramientas de Pesca: Tecnología que Salva Operaciones',
+    slug: 'bombas-centrifugas-industria-petrolera',
+    title: 'Bombas Centrífugas en la Industria Petrolera: Selección y Mantenimiento',
     excerpt:
-      'Las nuevas tecnologías en herramientas de pesca están revolucionando la forma en que recuperamos equipos atascados, reduciendo tiempos y costos significativamente.',
+      'Las bombas centrífugas son el corazón de las operaciones de transferencia de fluidos. Aprende a seleccionar el equipo correcto y mantenerlo en óptimas condiciones.',
     content: `
-# Innovaciones en Herramientas de Pesca
+# Bombas Centrífugas en la Industria Petrolera
 
-Las operaciones de pesca (fishing operations) son críticas cuando equipos quedan atascados en el pozo. Las nuevas tecnologías están cambiando el juego.
+Las bombas centrífugas son equipos fundamentales en toda operación petrolera. Su correcta selección y mantenimiento impactan directamente en la eficiencia y rentabilidad del proyecto.
 
-## Desafíos Tradicionales
+## Principio de Funcionamiento
 
-### Problemas Comunes
-- Tubería atascada
-- Herramientas perdidas
-- Obstrucciones inesperadas
-- Tiempo no productivo extendido
+### Componentes Principales
+- Impulsor o rodete
+- Carcasa o voluta
+- Eje de transmisión
+- Sellos mecánicos
+- Cojinetes
 
-### Costos Asociados
-- $50,000 - $500,000 USD por día de equipo de perforación
-- Pérdida de cronograma
-- Riesgo de abandono del pozo
+### Tipos de Bombas Centrífugas
+- Bombas de una etapa
+- Bombas multietapa
+- Bombas sumergibles
+- Bombas de alta presión
 
-## Nuevas Tecnologías
+## Aplicaciones en Oil & Gas
 
-### Herramientas con Sensores IoT
-- Monitoreo en tiempo real
-- Telemetría de fondo de pozo
-- Alertas tempranas de problemas
-- Datos para análisis predictivo
+### Transferencia de Crudo
+- Bombeo desde tanques de almacenamiento
+- Alimentación a sistemas de proceso
+- Carga y descarga de buques
+- Bombeo entre instalaciones
 
-### Materiales Avanzados
-- Aleaciones de alta resistencia
-- Recubrimientos anti-corrosión
-- Mayor vida útil
-- Mejor rendimiento en condiciones extremas
+### Sistemas de Inyección
+- Inyección de agua
+- Inyección de químicos
+- Sistemas de recuperación mejorada
+- Manejo de agua producida
 
-### Martillos Hidromecánicos Inteligentes
-- Control preciso de impactos
-- Ajuste automático de fuerza
-- Menor riesgo de daño
-- Mayor tasa de éxito
+### Sistemas de Lodo
+- Circulación de fluido de perforación
+- Alimentación de equipos de control de sólidos
+- Transferencia entre tanques
+- Sistemas de mezcla
 
-## Casos de Éxito
+## Criterios de Selección
 
-### Recuperación en Golfo de México
-- Tubería atascada a 4,500m
-- Recuperación exitosa en 36 horas
-- Ahorro estimado: $2.5M USD
+### Parámetros Hidráulicos
+- Caudal requerido (GPM/m³/h)
+- Altura dinámica total (TDH)
+- NPSH disponible vs requerido
+- Curva del sistema
 
-### Operación en Aguas Profundas
-- Herramienta perdida
-- Uso de magnetos de alta potencia
-- Recuperación total
-- Proyecto continuó sin retrasos
+### Características del Fluido
+- Viscosidad
+- Densidad
+- Contenido de sólidos
+- Corrosividad
+- Temperatura
 
-## Mejores Prácticas
+### Materiales de Construcción
+- Acero al carbono
+- Acero inoxidable
+- Aleaciones especiales
+- Recubrimientos cerámicos
 
-1. **Prevención**
-   - Monitoreo constante
-   - Mantenimiento preventivo
-   - Capacitación del personal
+## Mantenimiento Preventivo
 
-2. **Preparación**
-   - Equipos de pesca en sitio
-   - Personal especializado
-   - Protocolos claros
+### Inspecciones Rutinarias
+- Verificación de vibraciones
+- Monitoreo de temperatura
+- Revisión de sellos
+- Análisis de lubricante
 
-3. **Ejecución**
-   - Análisis detallado
-   - Selección de herramienta adecuada
-   - Seguimiento continuo
+### Mantenimiento Programado
+- Cambio de sellos mecánicos
+- Alineación del conjunto
+- Balanceo de impulsores
+- Reemplazo de cojinetes
+
+### Indicadores de Desgaste
+- Aumento de vibración
+- Caída de rendimiento
+- Fugas excesivas
+- Ruidos anormales
+
+## Eficiencia Energética
+
+### Optimización
+- Variadores de frecuencia (VFD)
+- Impulsores recortados a medida
+- Control de punto de operación
+- Bombas de alta eficiencia
+
+### Beneficios
+- Reducción de consumo energético hasta 30%
+- Menor desgaste mecánico
+- Mayor vida útil del equipo
+- Menor costo operativo
 
 ## Conclusión
 
-La inversión en tecnología de pesca moderna se paga sola con una sola operación exitosa. En AOG mantenemos el equipo más avanzado del mercado.
+En AOG contamos con un amplio catálogo de bombas centrífugas y el expertise para ayudarte a seleccionar el equipo ideal para tu operación.
     `,
     author: {
       name: 'Ing. Roberto Sánchez',
-      role: 'Especialista en Pesca',
+      role: 'Especialista en Equipos Rotativos',
     },
     date: '2025-01-05',
     readTime: '10 min',
-    category: 'Innovación',
+    category: 'Tecnología',
     iconName: 'Wrench',
-    image: '/images/aog/platform-hero.jpg',
+    image: '/images/aog/bombas-centrifugas.jpg',
   },
   {
     id: '4',
@@ -356,7 +383,7 @@ En AOG, la sostenibilidad no es solo cumplimiento, es nuestro compromiso con las
     readTime: '7 min',
     category: 'Sostenibilidad',
     iconName: 'Leaf',
-    image: '/images/aog/workers-equipment.jpg',
+    image: '/images/aog/energia-2.jpeg',
   },
   {
     id: '5',
